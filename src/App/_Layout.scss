@@ -1,0 +1,108 @@
+/// Screen estate
+
+$screen-width-breakpoints: (
+  xs 320px,
+  s 420px,
+  m 720px,
+  l 1020px,
+  xl 1420px
+);
+
+.content {
+  @media (min-width: 1020px) {
+    margin: auto;
+    max-width: 960px;
+  }
+}
+
+/// Flex layout
+
+$flex-alignments: (
+  auto,
+  baseline
+  flex-start,
+  flex-end,
+  center,
+  stretch,
+  unset
+);
+
+.flex {
+  display: flex;
+}
+
+.flex-inline {
+  display: inline-flex;
+}
+
+.flex,
+.flex-inline {
+  @each $alignment in $flex-alignments {
+    .justify-#{$alignment} {
+      justify-content: $alignment !important;
+    }
+
+    .align-#{$alignment} {
+      align-items: $alignment !important;
+    }
+  }
+
+  &.row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &.column {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &.self,
+  & > .self {
+    @each $alignment in $flex-alignments {
+      &-justify-#{$alignment} {
+        justify-self: $alignment;
+      }
+
+      &-align-#{$alignment} {
+        align-self: $alignment;
+      }
+    }
+  }
+
+  &.no-wrap {
+    flex-wrap: nowrap;
+  }
+}
+
+/// Margins
+
+$margin-selectors: (
+  top,
+  left,
+  bottom,
+  right
+);
+
+$margin-values: (
+  auto auto,
+  0 0,
+  1 1em
+);
+
+.margin {
+  @each $name, $val in $margin-values {
+    &-#{$name} {
+      margin: $val;
+    }
+  }
+
+  @each $selector in $margin-selectors {
+    &-#{$selector} {
+      @each $name, $val in $margin-values {
+        &-#{$name} {
+          margin-#{$selector}: $val;
+        }
+      }
+    }
+  }
+}

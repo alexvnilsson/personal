@@ -1,0 +1,13 @@
+$text-alignments: (
+  left,
+  center,
+  right
+);
+
+.text {
+  @each $alignment in $text-alignments {
+    &-align-#{$alignment} {
+      text-align: $alignment;
+    }
+  }
+}
