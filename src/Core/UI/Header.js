@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from 'brand-dark.svg';
 
-class AppHeader extends Component {
+export default class AppHeader extends Component {
     render() {
         return (
             <div className="app-header-container">
@@ -20,5 +20,3 @@ class AppHeader extends Component {
         );
     }
 }
-
-export default AppHeader;
