@@ -144,12 +144,12 @@ body {
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #fafafa;
+  background-color: whitesmoke;
   font-weight: 500;
   font-size: 15px; }
 
 .app-header-container {
-  background-color: #fafafa; }
+  padding: 0; }
 
 .app-header {
   display: flex;
@@ -163,14 +163,18 @@ html, body {
     flex-direction: column;
     flex-wrap: center;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    padding-top: 1rem; }
     .app-header .header-brand .brand-logo {
-      width: 8rem; }
+      width: 8rem;
+      height: auto;
+      fill: #0064dc; }
     .app-header .header-brand .brand-name {
+      display: none;
       margin: 1rem 0 0 0;
       font-size: 1.25rem;
       font-weight: 300;
-      color: #191919; }
+      color: #545454; }
   .app-header ul.header-right-nav {
     flex: 1;
     display: flex;

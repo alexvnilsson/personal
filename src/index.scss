@@ -5,18 +5,14 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(245, 245, 245);
 
   font-weight: 500;
   font-size: 15px;
 }
 
 .app-header-container {
-  background-color: rgb(250, 250, 250);
-
-  //border-bottom: 2px solid rgb(0, 50, 75);
-
-  //background: linear-gradient(rgb(250, 250, 250) 75%, $app--background-color);
+  padding: 0;
 }
 .app-header {
   @include flex-container(row, space-between, flex-start);
@@ -25,19 +21,25 @@ html, body {
 
   .header-brand {
     @include flex-container(column, space-between, center, center);
+    padding-top: 1rem;
 
     .brand-logo {
       width: 8rem;
+      height: auto;
+
+      fill: rgb(0, 100, 220);
     }
 
     .brand-name {
+      display: none;
+
       margin: 1rem 0 0 0;
       //align-self: flex-end;
 
       font-size: 1.25rem;
       font-weight: 300;
 
-      color: rgb(25, 25, 25);
+      color: rgb(84, 84, 84);
     }
   }
 

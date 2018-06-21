@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from 'brand-dark.svg';
+import BrandLogo from 'Core/UI/BrandLogo';
+//import logo from 'brand-dark.svg';
 
 export default class AppHeader extends Component {
     render() {
@@ -7,8 +8,9 @@ export default class AppHeader extends Component {
             <div className="app-header-container">
                 <header className="app-header content">
                     <div className="header-brand">
-                        <img src={logo} className="brand-logo" alt="logo" />
-                        <h1 className="brand-name">Alex V. Nilsson</h1>
+                      <BrandLogo className="brand-logo"></BrandLogo>
+                      {/* <img src={logo} className="brand-logo" alt="logo" /> */}
+                      <h1 className="brand-name">Alex V. Nilsson</h1>
                     </div>
 
                     <ul className="header-right-nav">
