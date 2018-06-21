@@ -144,12 +144,12 @@ body {
 html, body {
   margin: 0;
   padding: 0;
+  background-color: #fafafa;
   font-weight: 500;
   font-size: 15px; }
 
 .app-header-container {
-  background-color: #fafafa;
-  background: linear-gradient(#fafafa 75%, #f0f0f0); }
+  background-color: #fafafa; }
 
 .app-header {
   display: flex;
@@ -157,20 +157,18 @@ html, body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2.5rem;
   padding: 1rem 0; }
   .app-header .header-brand {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: center;
     justify-content: space-between;
     align-items: center; }
     .app-header .header-brand .brand-logo {
       width: 8rem; }
     .app-header .header-brand .brand-name {
-      margin: 0 0 0 2.5rem;
-      align-self: flex-end;
-      font-size: 2.5rem;
+      margin: 1rem 0 0 0;
+      font-size: 1.25rem;
       font-weight: 300;
       color: #191919; }
   .app-header ul.header-right-nav {
