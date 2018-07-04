@@ -1,0 +1,209 @@
+html, body {
+  margin: 0;
+  padding: 2.5rem;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  cursor: default; }
+
+body {
+  background-color: #0c0c19;
+  color: #c8c8c8; }
+
+@media (min-width: 1020px) {
+  .content {
+    margin: auto;
+    max-width: 960px; } }
+
+.flex {
+  display: flex; }
+
+.flex-inline {
+  display: inline-flex; }
+
+.flex .justify-auto,
+.flex-inline .justify-auto {
+  justify-content: auto !important; }
+
+.flex .align-auto,
+.flex-inline .align-auto {
+  align-items: auto !important; }
+
+.flex .justify-baseline flex-start,
+.flex-inline .justify-baseline flex-start {
+  justify-content: baseline flex-start !important; }
+
+.flex .align-baseline flex-start,
+.flex-inline .align-baseline flex-start {
+  align-items: baseline flex-start !important; }
+
+.flex .justify-flex-end,
+.flex-inline .justify-flex-end {
+  justify-content: flex-end !important; }
+
+.flex .align-flex-end,
+.flex-inline .align-flex-end {
+  align-items: flex-end !important; }
+
+.flex .justify-center,
+.flex-inline .justify-center {
+  justify-content: center !important; }
+
+.flex .align-center,
+.flex-inline .align-center {
+  align-items: center !important; }
+
+.flex .justify-stretch,
+.flex-inline .justify-stretch {
+  justify-content: stretch !important; }
+
+.flex .align-stretch,
+.flex-inline .align-stretch {
+  align-items: stretch !important; }
+
+.flex .justify-unset,
+.flex-inline .justify-unset {
+  justify-content: unset !important; }
+
+.flex .align-unset,
+.flex-inline .align-unset {
+  align-items: unset !important; }
+
+.flex.row,
+.flex-inline.row {
+  flex-direction: row;
+  justify-content: space-between; }
+
+.flex.column,
+.flex-inline.column {
+  flex-direction: column;
+  justify-content: space-between; }
+
+.flex.self-justify-auto,
+.flex > .self-justify-auto,
+.flex-inline.self-justify-auto,
+.flex-inline > .self-justify-auto {
+  justify-self: auto; }
+
+.flex.self-align-auto,
+.flex > .self-align-auto,
+.flex-inline.self-align-auto,
+.flex-inline > .self-align-auto {
+  align-self: auto; }
+
+.flex.self-justify-baseline flex-start,
+.flex > .self-justify-baseline flex-start,
+.flex-inline.self-justify-baseline flex-start,
+.flex-inline > .self-justify-baseline flex-start {
+  justify-self: baseline flex-start; }
+
+.flex.self-align-baseline flex-start,
+.flex > .self-align-baseline flex-start,
+.flex-inline.self-align-baseline flex-start,
+.flex-inline > .self-align-baseline flex-start {
+  align-self: baseline flex-start; }
+
+.flex.self-justify-flex-end,
+.flex > .self-justify-flex-end,
+.flex-inline.self-justify-flex-end,
+.flex-inline > .self-justify-flex-end {
+  justify-self: flex-end; }
+
+.flex.self-align-flex-end,
+.flex > .self-align-flex-end,
+.flex-inline.self-align-flex-end,
+.flex-inline > .self-align-flex-end {
+  align-self: flex-end; }
+
+.flex.self-justify-center,
+.flex > .self-justify-center,
+.flex-inline.self-justify-center,
+.flex-inline > .self-justify-center {
+  justify-self: center; }
+
+.flex.self-align-center,
+.flex > .self-align-center,
+.flex-inline.self-align-center,
+.flex-inline > .self-align-center {
+  align-self: center; }
+
+.flex.self-justify-stretch,
+.flex > .self-justify-stretch,
+.flex-inline.self-justify-stretch,
+.flex-inline > .self-justify-stretch {
+  justify-self: stretch; }
+
+.flex.self-align-stretch,
+.flex > .self-align-stretch,
+.flex-inline.self-align-stretch,
+.flex-inline > .self-align-stretch {
+  align-self: stretch; }
+
+.flex.self-justify-unset,
+.flex > .self-justify-unset,
+.flex-inline.self-justify-unset,
+.flex-inline > .self-justify-unset {
+  justify-self: unset; }
+
+.flex.self-align-unset,
+.flex > .self-align-unset,
+.flex-inline.self-align-unset,
+.flex-inline > .self-align-unset {
+  align-self: unset; }
+
+.flex.no-wrap,
+.flex-inline.no-wrap {
+  flex-wrap: nowrap; }
+
+.margin-auto {
+  margin: auto; }
+
+.margin-0 {
+  margin: 0; }
+
+.margin-1 {
+  margin: 1em; }
+
+.margin-top-auto {
+  margin-top: auto; }
+
+.margin-top-0 {
+  margin-top: 0; }
+
+.margin-top-1 {
+  margin-top: 1em; }
+
+.margin-left-auto {
+  margin-left: auto; }
+
+.margin-left-0 {
+  margin-left: 0; }
+
+.margin-left-1 {
+  margin-left: 1em; }
+
+.margin-bottom-auto {
+  margin-bottom: auto; }
+
+.margin-bottom-0 {
+  margin-bottom: 0; }
+
+.margin-bottom-1 {
+  margin-bottom: 1em; }
+
+.margin-right-auto {
+  margin-right: auto; }
+
+.margin-right-0 {
+  margin-right: 0; }
+
+.margin-right-1 {
+  margin-right: 1em; }
+
+.text-align-left {
+  text-align: left; }
+
+.text-align-center {
+  text-align: center; }
+
+.text-align-right {
+  text-align: right; }
