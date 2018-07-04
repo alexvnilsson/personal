@@ -12,8 +12,8 @@ export default class AppHeader extends Component {
           </div>
 
           <ul className="header-right-nav">
-            <li><a href="#">Legal</a></li>
-            <li><a href="#">Press</a></li>
+            <li><a href="https://github.com/alexvnilsson" target="_blank"><img src="/assets/github-logo.svg" width="25px" /></a></li>
+            <li><a href="https://www.linkedin.com/in/alexvnilsson/" target="_blank"><img src="/assets/linkedin-logo.svg" width="25px" /></a></li>
           </ul>
         </header>
       </div>
