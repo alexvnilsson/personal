@@ -2,6 +2,7 @@
   "name": "alexvnilsson",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alexvnilsson.github.io/alexvnilsson",
   "scripts": {
     "sass:build": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "sass:watch": "yarn run sass:build && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
@@ -9,16 +10,20 @@
     "react:build": "react-scripts build",
     "start": "npm-run-all -p sass:watch react:start",
     "build": "npm-run-all sass:build react:build",
-    "test": "react-scripts test --env=jsdom"
+    "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run react:build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-pose": "^2.1.2",
     "react-router-dom": "^4.3.1",
+    "react-router-transition": "^1.2.1",
     "react-scripts": "1.1.4"
   },
   "devDependencies": {
+    "gh-pages": "^1.2.0",
     "node-sass-chokidar": "^1.3.0",
     "npm-run-all": "^4.1.3"
   }
