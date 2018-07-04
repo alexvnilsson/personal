@@ -13,7 +13,7 @@ export default class App extends Component {
     return (
       <div>
         <AppHeader></AppHeader>
-        <Router>
+        <Router basename="/personal">
           <div>
             <Route exact path="/" component={Home} />
             <Route path="/showcase" component={Showcase} />
