@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import posed, { PoseGroup } from 'react-pose';
 
 import Button from 'Core/UI/Components/Button';
 
