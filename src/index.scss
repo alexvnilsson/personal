@@ -19,11 +19,30 @@ html, body {
   cursor: default;
 }
 
-.app-header-container {
-  position: relative;
-  padding: 0;
+@media (min-width: 1020px) {
+  .content {
+    margin: auto;
+    max-width: 960px;
+  }
 
-  background-color: rgb(15, 15, 15);  
+  .app-header-container {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 1020px) {
+  .content {
+    margin: auto;
+    padding: 0 2rem;
+  }
+
+  .app-header-container {
+    padding: 1rem 2rem;
+  }
+}
+
+.app-header-container {
+  position: relative; 
 }
 .app-header {
   @include flex-container(row, space-between, flex-start);

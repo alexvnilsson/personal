@@ -8,13 +8,6 @@ $screen-width-breakpoints: (
   xl 1420px
 );
 
-.content {
-  @media (min-width: 1020px) {
-    margin: auto;
-    max-width: 960px;
-  }
-}
-
 /// Flex layout
 
 $flex-alignments: (
@@ -24,6 +17,8 @@ $flex-alignments: (
   flex-end,
   center,
   stretch,
+  space-between,
+  space-around,
   unset
 );
 
@@ -74,6 +69,12 @@ $flex-alignments: (
   }
 }
 
+/// Display
+
+.inline-block {
+  display: inline-block;
+}
+
 /// Margins
 
 $margin-selectors: (
@@ -83,14 +84,20 @@ $margin-selectors: (
   right
 );
 
-$margin-values: (
+$measurements-values: (
   auto auto,
   0 0,
-  1 1em
+  tiny 0.33rem,
+  1 1rem,
+  2 1.5rem,
+  3 2rem,
+  4 2.5rem,
+  5 3rem,
+  6 3.5rem
 );
 
 .margin {
-  @each $name, $val in $margin-values {
+  @each $name, $val in $measurements-values {
     &-#{$name} {
       margin: $val;
     }
@@ -98,10 +105,46 @@ $margin-values: (
 
   @each $selector in $margin-selectors {
     &-#{$selector} {
-      @each $name, $val in $margin-values {
+      @each $name, $val in $measurements-values {
         &-#{$name} {
           margin-#{$selector}: $val;
         }
+      }
+    }
+  }
+
+  &-y {
+    @each $name, $val in $measurements-values {
+      &-#{$name} {
+        margin-top: $val;
+        margin-bottom: $val;
+      }
+    }
+  }
+}
+
+.padding {
+  @each $name, $val in $measurements-values {
+    &-#{$name} {
+      padding: $val;
+    }
+  }
+
+  @each $selector in $margin-selectors {
+    &-#{$selector} {
+      @each $name, $val in $measurements-values {
+        &-#{$name} {
+          padding-#{$selector}: $val;
+        }
+      }
+    }
+  }
+
+  &-y {
+    @each $name, $val in $measurements-values {
+      &-#{$name} {
+        padding-top: $val;
+        padding-bottom: $val;
       }
     }
   }

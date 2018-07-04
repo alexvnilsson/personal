@@ -31,6 +31,40 @@ $text-alignments: (
       text-align: $alignment;
     }
   }
+
+  &-muted {
+    color: darken($app--color, 10%);
+  }
+
+  &-darken {
+    color: darken($app--color, 25%);
+  }
+
+  &-size {
+    &-smaller {
+      font-size: 0.85em;
+    }
+
+    &-small {
+      font-size: 0.75em;
+    }
+  }
+
+  &-weight {
+    &-light {
+      font-weight: 300;
+    }
+
+    &-thin {
+      font-weight: 100;
+    }
+  }
+
+  &-line-spacing {
+    &-expand {
+      line-height: 1.5em;
+    }
+  }
 }
 
 /// Elemental styling
