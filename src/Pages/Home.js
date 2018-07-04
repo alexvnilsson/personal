@@ -16,7 +16,7 @@ export default class Home extends Component {
         </p>
 
         <p className="text-align-center margin-y-3">
-          <Link to="/showcase">
+          <Link to="/portfolio">
             <Button>Portfölj</Button>
           </Link>
 
