@@ -2,7 +2,7 @@
   "name": "alexvnilsson",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexvnilsson.github.io/me",
+  "homepage": "https://alexvnilsson.github.io/personal/",
   "scripts": {
     "sass:build": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "sass:watch": "yarn run sass:build && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
