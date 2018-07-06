@@ -15,15 +15,11 @@ export default class App extends Component {
     super()
 
     this.colorTheme = '';
-
-    
   }
 
   componentWillMount() {
     this.uiStoreListener = store.subscribe(() => {
-      const state = store.getState();
-
-      console.log(state);    
+      const state = store.getState(); 
 
       if (this.colorTheme !== state.colorTheme) {
         this.colorTheme = state.colorTheme;
