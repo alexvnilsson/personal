@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 
-export default class Portfolio extends Component {
-  render() {
-    return (
-      <div className="content">
-        <h1>Oops!</h1>
+import { store, actions } from 'Core/UI/Store';
 
-        <h2>Har inte hunnit skapa innehållet på denna sida ännu.</h2>
+export default class Portfolio extends Component {
+  componentWillMount() {
+    store.dispatch(actions.setColorTheme('light'));
+  }
+
+  render() {
+   return (
+      <div className="back-light">
+        <div className="content">
+          <h1>Oops!</h1>
+
+          <h2>Har inte hunnit skapa innehållet på denna sida ännu.</h2>
+        </div>
       </div>
     );
   }

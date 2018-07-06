@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { store, actions } from 'Core/UI/Store';
+
 import Button from 'Core/UI/Components/Button';
 
 import SeamlessItem from 'Core/UI/Components/Itemization/SeamlessItem';
 
 export default class Home extends Component {
+  componentWillMount() {
+    store.dispatch(actions.setColorTheme('dark'));
+  }
+
   render() {
+    
+
     return (
       <div className="content">
         <h1>Alexander Nilsson ‐ en webbutvecklare</h1>
