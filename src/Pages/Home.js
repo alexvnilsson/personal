@@ -36,7 +36,7 @@ export default class Home extends Component {
         <div className="margin-top-4"></div>
 
         <div>
-          <h2>Arbetslivserharenhet</h2>
+          <h2>Arbetslivserfarenhet</h2>
 
           <SeamlessItem heading="Egenföretagare" subheading="2016-2017">
             Drev egen firma fr.o.m. sena 2015 under mitt egna namn, hösten 2016 grundade jag (ej ensam) ett aktiebolag med namnet <span className="text-muted" title="Detta är ännu inte en länk.">NC NetCommando AB</span>, som gick i konkurs ett år senare (september, 2017).
