@@ -591,11 +591,19 @@ h3 {
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #191919;
-  color: whitesmoke;
   font-weight: 400;
   font-size: 15px;
   cursor: default; }
+
+.content-container {
+  min-height: 100vh;
+  transition: background-color .25s ease-in-out, color .25s ease-in-out; }
+  .content-container.dark {
+    background-color: #191919;
+    color: whitesmoke; }
+  .content-container.light {
+    background-color: #fafafa;
+    color: #050505; }
 
 @media (min-width: 1020px) {
   .content {

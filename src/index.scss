@@ -10,14 +10,31 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background-color: $app--background-color;
-  color: $app--color;
-
   font-weight: 400;
   font-size: 15px;
 
   cursor: default;
 }
+
+.content-container {
+  min-height: 100vh;
+
+  &.dark {
+    background-color: $app--background-color;
+    color: $app--color;
+  }
+
+  &.light {
+    background-color: rgb(250, 250, 250);
+    color: rgb(5, 5, 5);
+  }
+
+  transition:
+    background-color .25s ease-in-out,
+    color .25s ease-in-out;
+}
+
+
 
 @media (min-width: 1020px) {
   .content {
