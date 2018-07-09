@@ -32,6 +32,12 @@ $text-alignments: (
     }
   }
 
+  &-dark {
+    & .text-muted {
+      color: lighten(rgb(5, 5, 5), 25%);
+    }
+  }
+
   &-muted {
     color: darken($app--color, 10%);
   }
