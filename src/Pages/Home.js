@@ -13,8 +13,6 @@ export default class Home extends Component {
   }
 
   render() {
-    
-
     return (
       <div className="content">
         <h1>Alexander Nilsson ‐ en webbutvecklare</h1>

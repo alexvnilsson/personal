@@ -41,7 +41,8 @@ export default class App extends Component {
           <AppHeader></AppHeader>
 
           <Route exact path="/" component={Home} />
-          <Route path="/portfolio" component={Portfolio} />
+          <Route exact path="/portfolio" component={Portfolio} />
+          
         </div>
       </Router>
     );
