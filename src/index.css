@@ -538,6 +538,9 @@
 .text-align-right {
   text-align: right; }
 
+.text-dark .text-muted {
+  color: #454545; }
+
 .text-muted {
   color: gainsboro; }
 
@@ -569,20 +572,27 @@ h3 {
 
 .button {
   display: inline-block;
-  min-width: 4rem;
-  padding: 0.5rem 1rem;
   background-color: #004bff;
   border: none;
   outline: none;
   border-radius: 30px;
-  box-shadow: 1px 1px 4px black;
-  font-size: 1.25rem;
   font-weight: 300;
   text-align: center;
-  color: #fafafa;
+  text-decoration: none !important;
+  color: #fafafa !important;
   white-space: nowrap;
   cursor: pointer;
   transition: background-color 125ms ease-in-out; }
+  .button:not(.small) {
+    min-width: 4rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem; }
+  .button.small {
+    min-width: 2.5rem;
+    padding: 0.33rem 0.66rem;
+    font-size: inherit; }
+  .button:not(.no-shadow) {
+    box-shadow: 1px 1px 4px black; }
   .button:hover, .button:focus {
     background-color: #0044e6; }
   .button:active {
@@ -667,3 +677,13 @@ html, body {
         font-weight: 500;
         color: #e1e1e1;
         text-decoration: none; }
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #004b9b; }
+
+a:hover, a:focus {
+  text-decoration: underline; }
+
+a:active {
+  color: #001a35; }
