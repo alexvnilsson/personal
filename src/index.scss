@@ -119,3 +119,21 @@ html, body {
     }
   }
 }
+
+a {
+  &:link,
+  &:visited {
+    text-decoration: none;
+
+    color: rgb(0, 75, 155);
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: darken(rgb(0, 75, 155), 20%);
+  }
+}
