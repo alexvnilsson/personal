@@ -22,8 +22,13 @@ export default class App extends Component {
       const state = store.getState(); 
 
       if (this.colorTheme !== state.colorTheme) {
+        document.body.classList.add(state.colorTheme);
+
+        if (this.colorTheme) {
+          document.body.classList.remove(this.colorTheme);
+        }
+
         this.colorTheme = state.colorTheme;
-        this.forceUpdate();
       }
     });
   }
@@ -37,7 +42,7 @@ export default class App extends Component {
   render() {
     return (
       <Router basename="/personal">
-        <div className={"content-container " + this.colorTheme}>
+        <div>
           <AppHeader></AppHeader>
 
           <Route exact path="/" component={Home} />

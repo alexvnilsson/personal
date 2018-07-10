@@ -22,7 +22,7 @@
       .label {
         display: inline-block;
 
-        background-color: #fefefe;
+        
 
         border-radius: 0.6rem;
         border-top-left-radius: 0;
@@ -31,7 +31,7 @@
         padding: 0.2rem 0.4rem;
 
         font-size: 0.8rem;
-        color: #222;
+        
 
         z-index: 2;
       }
@@ -44,6 +44,32 @@
         margin-top: 0;
         margin-bottom: 0.5rem;
       }
+    }
+  }
+}
+
+body.dark {
+  .list-timeline {
+    .vertical-line {
+      border-left-color: #fefefe;
+    }
+
+    .item .col-ident .label {
+      background-color: #fefefe;
+      color: #222;
+    }
+  }
+}
+
+body.light {
+  .list-timeline {
+    .vertical-line {
+      border-left-color: #222;
+    }
+
+    .item .col-ident .label {
+      background-color: #222;
+      color: #fefefe;
     }
   }
 }

@@ -15,10 +15,6 @@ html, body {
   font-size: 15px;
 
   cursor: default;
-}
-
-.content-container {
-  min-height: 100vh;
 
   &.dark {
     background-color: $app--background-color;
@@ -34,8 +30,6 @@ html, body {
     background-color .25s ease-in-out,
     color .25s ease-in-out;
 }
-
-
 
 @media (min-width: 1020px) {
   .content {
