@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 
 import { store, actions } from 'Core/UI/Store';
 
-import ComdoCRM from './Portfolio/ComdoCRM';
-
 export default class Portfolio extends Component {
-  get Subpages() {
-    return {
-      ComdoCRM: ComdoCRM
-    }
-  }
-
   componentWillMount() {
     store.dispatch(actions.setColorTheme('light'));
   }

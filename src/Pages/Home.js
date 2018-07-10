@@ -5,7 +5,7 @@ import { store, actions } from 'Core/UI/Store';
 
 import Button from 'Core/UI/Components/Button';
 
-import SeamlessItem from 'Core/UI/Components/Itemization/SeamlessItem';
+import { Timeline, TimelineItem, SeamlessItem } from 'Core/UI/Components/Itemization';
 
 export default class Home extends Component {
   componentWillMount() {
@@ -36,37 +36,43 @@ export default class Home extends Component {
         <div>
           <h2>Arbetslivserfarenhet</h2>
 
-          <SeamlessItem heading="Egenföretagare" subheading="2016-2017">
+          <Timeline>
+
+          <TimelineItem heading="Egenföretagare" subheading="2016">
             Drev egen firma fr.o.m. sena 2015 under mitt egna namn, hösten 2016 grundade jag (ej ensam) ett aktiebolag med namnet <span className="text-muted" title="Detta är ännu inte en länk.">NC NetCommando AB</span>, som gick i konkurs ett år senare (september, 2017).
 
             <p>
               För mig blev det tydligt väldigt fort att jag inte var "business"-begåvad, utan jag är tekniskt inriktad.
             </p>
-          </SeamlessItem>
+          </TimelineItem>
 
-          <SeamlessItem heading="Webbansvarig/-utvecklare, ProPublic AB" subheading="2013-2016">
+          <TimelineItem heading="Webbansvarig/-utvecklare, ProPublic AB" subheading="2013">
             Drev webbutveckling och -drift åt denna konsultfirma som startade sin verksamhet vid årsskiftet 2013-2014. Här hade jag möjlighet att under flexibla omständigheter utveckla mina komptenser inom området.
-          </SeamlessItem>
+          </TimelineItem>
+
+          </Timeline>
         </div>
 
         <div>
-          <h2>Utbildning <span className="text-muted text-size-smaller">(kronologisk ordning)</span></h2>
+          <h2>Utbildning</h2>
 
-          <SeamlessItem heading="Grillska gymnasium, Västerås" subheading="2013-2014">
-            Datakunskaplig inriktning, webbutveckling och datorkunskap.
-          </SeamlessItem>
+          <Timeline>
+            <TimelineItem heading="Vuxenutbildningscentrum, Västerås" subheading="2015">
+              Distansstudier i Skövde gick åt helvete (märker du ett mönster), flyttade hem till Västerås, försökte med distansstudier.
+            </TimelineItem>
 
-          <SeamlessItem heading="IT-gymnasiet, Skövde" subheading="2014">
-            Datakunskaplig inriktning, webbutveckling och datorkunskap (forts.)
-          </SeamlessItem>
+            <TimelineItem heading="Vuxenutbildningscentrum, Skövde" subheading="2014">
+              Skolan gick åt helvete, försökte studera på distans.
+          </TimelineItem>
 
-          <SeamlessItem heading="Vuxenutbildningscentrum, Skövde" subheading="2014-2015">
-            Skolan gick åt helvete, försökte studera på distans.
-          </SeamlessItem>
+            <TimelineItem heading="IT-gymnasiet, Skövde" subheading="2014">
+              Datakunskaplig inriktning, webbutveckling och datorkunskap (forts.)
+          </TimelineItem>
 
-          <SeamlessItem heading="Vuxenutbildningscentrum, Västerås" subheading="2015-2016">
-            Distansstudier i Skövde gick åt helvete (märker du ett mönster), flyttade hem till Västerås, försökte med distansstudier.
-          </SeamlessItem>
+            <TimelineItem heading="Grillska gymnasium, Västerås" subheading="2013">
+              Datakunskaplig inriktning, webbutveckling och datorkunskap.
+          </TimelineItem>
+          </Timeline>
         </div>
 
         <p></p>

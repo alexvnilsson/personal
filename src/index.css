@@ -529,6 +529,43 @@
   padding-top: 3.5rem;
   padding-bottom: 3.5rem; }
 
+.list-timeline {
+  position: relative; }
+  .list-timeline .vertical-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    border-left: 1px solid #fefefe;
+    z-index: 0; }
+  .list-timeline .item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0.5rem 0; }
+    .list-timeline .item .col-ident {
+      flex: 1; }
+      .list-timeline .item .col-ident .label {
+        display: inline-block;
+        background-color: #fefefe;
+        border-radius: 0.6rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+        color: #222;
+        z-index: 2; }
+    .list-timeline .item .col-content {
+      flex: 9; }
+      .list-timeline .item .col-content .heading {
+        margin-top: 0;
+        margin-bottom: 0.5rem; }
+
 .text-align-left {
   text-align: left; }
 
