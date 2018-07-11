@@ -5,7 +5,7 @@ import { store, actions } from 'Core/UI/Store';
 
 import Button from 'Core/UI/Components/Button';
 
-import { Timeline, TimelineItem, SeamlessItem } from 'Core/UI/Components/Itemization';
+import { Timeline, TimelineItem } from 'Core/UI/Components/Itemization';
 
 export default class Home extends Component {
   componentWillMount() {

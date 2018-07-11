@@ -539,7 +539,8 @@
     bottom: 0;
     width: 2px;
     height: 100%;
-    border-left: 1px solid #fefefe;
+    border-left-width: 1px;
+    border-left-style: solid;
     z-index: 0; }
   .list-timeline .item {
     display: flex;
@@ -565,14 +566,14 @@
         margin-bottom: 0.5rem; }
 
 body.dark .list-timeline .vertical-line {
-  border-left-color: #fefefe; }
+  border-left-color: #444; }
 
 body.dark .list-timeline .item .col-ident .label {
   background-color: #fefefe;
   color: #222; }
 
 body.light .list-timeline .vertical-line {
-  border-left-color: #222; }
+  border-left-color: #cecece; }
 
 body.light .list-timeline .item .col-ident .label {
   background-color: #222;

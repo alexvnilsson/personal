@@ -7,7 +7,8 @@
     width: 2px;
     height: 100%;
 
-    border-left: 1px solid #fefefe;
+    border-left-width: 1px;
+    border-left-style: solid;
 
     z-index: 0;
   }
@@ -51,7 +52,7 @@
 body.dark {
   .list-timeline {
     .vertical-line {
-      border-left-color: #fefefe;
+      border-left-color: #444;
     }
 
     .item .col-ident .label {
@@ -64,7 +65,7 @@ body.dark {
 body.light {
   .list-timeline {
     .vertical-line {
-      border-left-color: #222;
+      border-left-color: #cecece;
     }
 
     .item .col-ident .label {
