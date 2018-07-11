@@ -42,7 +42,7 @@ export default class Portfolio extends Component {
               </p>
 
               <p className="margin-top-2">
-                En webbapplikation som skulle säljas som ett verktyg för kundrelationshantering och säljstöd, utvecklad under NetCommando, av mig själv. Utvecklad i Angular (v4), back-end:an utvecklades i ASP.Net Core (källkoden inte släppt).
+                En webbapplikation som skulle säljas som ett verktyg för kundrelationshantering och säljstöd, utvecklad under NetCommando, av mig själv. Utvecklad i Angular (v5), back-end:an utvecklades i ASP.Net Core (källkoden inte släppt).
               </p>
             </div>
           </div>
