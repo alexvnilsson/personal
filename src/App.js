@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { store } from 'Core/UI/Store';
+import { store } from "Core/UI/Store";
 
-import AppHeader from 'Core/UI/Header';
+import AppHeader from "Core/UI/Header";
 
-import Home from 'Pages/Home';
-import Portfolio from 'Pages/Portfolio';
+import Home from "Pages/Home";
+import Portfolio from "Pages/Portfolio";
+import TechnologyDetails from "Pages/TechnologyDetails";
 
 // @TODO Implement https://github.com/maisano/react-router-transition
 
-export default class App extends Component {  
+export default class App extends Component {
   constructor() {
-    super()
+    super();
 
-    this.colorTheme = '';
+    this.colorTheme = "";
   }
 
   componentWillMount() {
     this.uiStoreListener = store.subscribe(() => {
-      const state = store.getState(); 
+      const state = store.getState();
 
       if (this.colorTheme !== state.colorTheme) {
         document.body.classList.add(state.colorTheme);
@@ -34,20 +35,20 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    if (typeof this.uiStoreListener !== 'undefined') {
+    if (typeof this.uiStoreListener !== "undefined") {
       this.uiStoreListener();
     }
   }
-  
+
   render() {
     return (
-      <Router basename="/personal">
+      <Router>
         <div>
-          <AppHeader></AppHeader>
+          <AppHeader />
 
           <Route exact path="/" component={Home} />
           <Route exact path="/portfolio" component={Portfolio} />
-          
+          <Route exact path="/tech" component={TechnologyDetails} />
         </div>
       </Router>
     );

@@ -4,15 +4,21 @@
 @import "Core/UI/Layout";
 @import "Core/UI/Itemization";
 @import "Core/UI/Text";
+@import "Core/UI/ProgressBar";
+@import "Core/UI/ListItem";
 
 @import "Core/UI/Actions";
 
-html, body {
+@import "bootstrap/scss/bootstrap";
+
+html,
+body {
   margin: 0;
   padding: 0;
 
+  font-family: Roboto;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
 
   cursor: default;
 
@@ -22,13 +28,11 @@ html, body {
   }
 
   &.light {
-    background-color: rgb(250, 250, 250);
+    background-color: #ebeef3;
     color: rgb(5, 5, 5);
   }
 
-  transition:
-    background-color .25s ease-in-out,
-    color .25s ease-in-out;
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 @media (min-width: 1020px) {
@@ -54,7 +58,7 @@ html, body {
 }
 
 .app-header-container {
-  position: relative; 
+  position: relative;
 }
 .app-header {
   @include flex-container(row, space-between, flex-start);
@@ -66,7 +70,7 @@ html, body {
 
     .brand-logo {
       width: auto;
-      height: 92px;      
+      height: 92px;
 
       fill: rgb(0, 115, 255);
     }
@@ -90,7 +94,6 @@ html, body {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    
 
     li {
       display: inline-block;
@@ -115,6 +118,10 @@ html, body {
   }
 }
 
+.content {
+  position: relative;
+}
+
 a {
   &:link,
   &:visited {
@@ -130,5 +137,85 @@ a {
 
   &:active {
     color: darken(rgb(0, 75, 155), 20%);
+  }
+}
+
+@media (min-width: 1020px) {
+  .deck {
+    max-width: 750px;
+  }
+}
+@media (max-width: 1020px) {
+  .deck {
+    max-width: 420px;
+  }
+}
+
+.deck {
+  @include make-container();
+
+  min-height: 5em;
+  padding: 0.75rem 0 0 0;
+
+  background-color: #fefefe;
+  box-shadow: #b2b2b2 0px 0px 4px 0px;
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  & > .heading {
+    margin: 0.5rem 1.5rem 0 1.5rem;
+
+    font-size: 1.5em;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .deck-body {
+    margin-top: 1em;
+
+    & > .listitem:nth-child(odd) {
+      background-color: #fefefe;
+    }
+
+    & > .listitem:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+
+    .listitem {
+      @include make-row();
+      justify-content: space-between;
+
+      margin: 0;
+      padding: 0.5rem 1.5rem;
+
+      & > .heading {
+        @include make-col(6);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        & > .heading-text {
+          margin: 0;
+          font-size: 1.25em;
+          font-weight: 500;
+        }
+      }
+
+      & > .body {
+        @include make-col(4);
+        align-content: space-between;
+
+        padding: 0.5rem 0.25rem;
+
+        & > .description {
+          margin: 0.5rem 0 0 0;
+
+          font-size: 0.85em;
+          font-weight: 300;
+        }
+      }
+    }
   }
 }
