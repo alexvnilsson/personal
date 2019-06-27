@@ -1,7 +1,10 @@
 @import "_theme-config";
 
+@import "Core/UI/Icons";
+
 @import "Core/UI/Utils";
 @import "Core/UI/Layout";
+@import "Core/UI/Deck";
 @import "Core/UI/Itemization";
 @import "Core/UI/Text";
 @import "Core/UI/ProgressBar";
@@ -137,85 +140,5 @@ a {
 
   &:active {
     color: darken(rgb(0, 75, 155), 20%);
-  }
-}
-
-@media (min-width: 1020px) {
-  .deck {
-    max-width: 750px;
-  }
-}
-@media (max-width: 1020px) {
-  .deck {
-    max-width: 420px;
-  }
-}
-
-.deck {
-  @include make-container();
-
-  min-height: 5em;
-  padding: 0.75rem 0 0 0;
-
-  background-color: #fefefe;
-  box-shadow: #b2b2b2 0px 0px 4px 0px;
-  border-radius: 15px;
-
-  overflow: hidden;
-
-  & > .heading {
-    margin: 0.5rem 1.5rem 0 1.5rem;
-
-    font-size: 1.5em;
-    font-weight: 300;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
-  .deck-body {
-    margin-top: 1em;
-
-    & > .listitem:nth-child(odd) {
-      background-color: #fefefe;
-    }
-
-    & > .listitem:nth-child(even) {
-      background-color: #f5f5f5;
-    }
-
-    .listitem {
-      @include make-row();
-      justify-content: space-between;
-
-      margin: 0;
-      padding: 0.5rem 1.5rem;
-
-      & > .heading {
-        @include make-col(6);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        & > .heading-text {
-          margin: 0;
-          font-size: 1.25em;
-          font-weight: 500;
-        }
-      }
-
-      & > .body {
-        @include make-col(4);
-        align-content: space-between;
-
-        padding: 0.5rem 0.25rem;
-
-        & > .description {
-          margin: 0.5rem 0 0 0;
-
-          font-size: 0.85em;
-          font-weight: 300;
-        }
-      }
-    }
   }
 }

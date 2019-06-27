@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Deck, { DeckTitle, DeckBody } from "Core/UI/Components/Deck";
+import Deck, { DeckTitle, DeckBody, DeckGroup } from "Core/UI/Components/Deck";
 import ProgressBar from "Core/UI/Components/ProgressBar";
 import ListItem from "Core/UI/Components/ListItem";
 
@@ -35,124 +35,98 @@ export default class TechnologyDetails extends Component {
           <div class="margin-top-3" />
 
           <Deck>
-            <DeckTitle>Datalogik och -hantering</DeckTitle>
+            <DeckTitle>Datalogik</DeckTitle>
 
             <DeckBody>
-              <ListItem heading="MySQL">
-                <ProgressBar value="80" />
+              <DeckGroup>
+                <ListItem title="MySQL" icon="mysql">
+                  <ProgressBar value="80" />
 
-                <p className="description">
-                  Erfarenhet av (Query SQL)?, MySQL Workbench
-                </p>
-              </ListItem>
+                  <p className="description">
+                    Erfarenhet av (Query SQL)?, MySQL Workbench
+                  </p>
+                </ListItem>
 
-              <ListItem heading="SQL Server">
-                <ProgressBar value="66" />
+                <ListItem title="SQL Server" icon="sqlserver">
+                  <ProgressBar value="66" />
 
-                <p className="description">
-                  Erfarenhet av Transact-SQL, Migrations med EF<sup>1</sup> Core
-                  och EF 6+
-                  <br />
-                  <br />
-                  <sup>1</sup> <small>Entity Framework</small>
-                </p>
-              </ListItem>
+                  <p className="description">
+                    Erfarenhet av Transact-SQL, Migrations med EF
+                    <sup>1</sup> Core och EF 6+
+                    <br />
+                    <br />
+                    <sup>1</sup> <small>Entity Framework</small>
+                  </p>
+                </ListItem>
 
-              <ListItem heading="MongoDB">
-                <ProgressBar value="40" />
+                <ListItem title="MongoDB" icon="mongodb">
+                  <ProgressBar value="40" />
 
-                <p className="description">
-                  Erfarenhet av användning med NodeJS-baserade servrar
-                </p>
-              </ListItem>
+                  <p className="description">
+                    Erfarenhet av användning med NodeJS-baserade servrar
+                  </p>
+                </ListItem>
+              </DeckGroup>
             </DeckBody>
           </Deck>
 
           <div class="margin-top-4" />
 
           <Deck>
-            <DeckTitle>Business-logik</DeckTitle>
+            <DeckTitle>Affärslogik</DeckTitle>
 
             <DeckBody>
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="12.5" />
+              <DeckGroup title="NodeJS">
+                <ListItem title="ExpressJS" icon="expressjs">
+                  <ProgressBar value="75" />
 
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
+                  <p className="description">Beskrivning av teknologin</p>
+                </ListItem>
 
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="25" />
+                <ListItem title="SailsJS" icon="sailsjs">
+                  <ProgressBar value="40" />
 
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
+                  <p className="description">Beskrivning av teknologin</p>
+                </ListItem>
+              </DeckGroup>
 
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="37.5" />
+              <DeckGroup title="Microsoft">
+                <ListItem title="ASP.NET Core MVC" icon="netcore">
+                  <ProgressBar value="66" />
 
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
-
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="50" />
-
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
-
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="75" />
-
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
-
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="100" />
-
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
+                  <p className="description">Beskrivning av teknologin</p>
+                </ListItem>
+              </DeckGroup>
             </DeckBody>
           </Deck>
 
           <div class="margin-top-4" />
 
           <Deck>
-            <DeckTitle>Business-logik</DeckTitle>
+            <DeckTitle>Presentationslager</DeckTitle>
 
             <DeckBody>
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="12.5" />
+              <DeckGroup>
+                <ListItem title="Angular" icon="angular">
+                  <ProgressBar value="80" />
 
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
+                  <p className="description">
+                    Utvecklat stor-skaliga affärssystem för ...
+                  </p>
+                </ListItem>
 
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="25" />
+                <ListItem title="React" icon="react">
+                  <ProgressBar value="66" />
 
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
+                  <p className="description" />
+                </ListItem>
 
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="37.5" />
+                <ListItem title="VueJS" icon="vuejs">
+                  <ProgressBar value="75" />
 
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
-
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="50" />
-
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
-
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="75" />
-
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
-
-              <ListItem heading="Teknologiens namn">
-                <ProgressBar value="100" />
-
-                <p className="description">Beskrivning av teknologin</p>
-              </ListItem>
+                  <p className="description" />
+                </ListItem>
+              </DeckGroup>
             </DeckBody>
           </Deck>
         </div>

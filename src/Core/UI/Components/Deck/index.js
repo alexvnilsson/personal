@@ -1,5 +1,5 @@
-﻿import Deck, { DeckBody, DeckTitle } from "./Deck";
+﻿import Deck, { DeckTitle, DeckBody, DeckGroup } from "./Deck";
 
-export { DeckBody, DeckTitle };
+export { DeckTitle, DeckBody, DeckGroup };
 
 export default Deck;

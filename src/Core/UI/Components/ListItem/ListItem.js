@@ -2,14 +2,37 @@
 
 export default class ListItem extends React.Component {
   render() {
-    return (
-      <div className="listitem">
-        <div className="heading">
-          <p className="heading-text">{this.props.heading}</p>
-        </div>
+    if (
+      typeof this.props.title !== "undefined" &&
+      typeof this.props.icon !== "undefined"
+    ) {
+      return (
+        <div className="listitem">
+          <div class="title">
+            <div className="title-wrapper">
+              <i
+                className={`title-icon icon-smaller icon-${this.props.icon}`}
+              />
+              <p className="title-text">{this.props.title}</p>
+            </div>
+          </div>
 
-        <div className="body">{this.props.children}</div>
-      </div>
-    );
+          <div className="body">{this.props.children}</div>
+        </div>
+      );
+    } else if (
+      typeof this.props.title !== "undefined" &&
+      typeof this.props.icon === "undefined"
+    ) {
+      return (
+        <div className="listitem">
+          <div className="title">
+            <p className="title-text">{this.props.title}</p>
+          </div>
+
+          <div className="body">{this.props.children}</div>
+        </div>
+      );
+    }
   }
 }
