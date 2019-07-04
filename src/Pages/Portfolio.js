@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import ProgressBar from "Core/UI/Components/ProgressBar";
-
 import { store, actions } from "Core/UI/Store";
 
 export default class Portfolio extends Component {

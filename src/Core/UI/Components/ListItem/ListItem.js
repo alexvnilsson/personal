@@ -8,7 +8,7 @@ export default class ListItem extends React.Component {
     ) {
       return (
         <div className="listitem">
-          <div class="title">
+          <div className="title h5">
             <div className="title-wrapper">
               <i
                 className={`title-icon icon-smaller icon-${this.props.icon}`}
