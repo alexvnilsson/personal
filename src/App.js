@@ -5,7 +5,7 @@ import { store } from "Core/UI/Store";
 
 import RestoreScroll from "Core/UI/RestoreScroll";
 
-import AppHeader from "Core/UI/Header";
+import AppHeader from "Core/UI/AppHeader";
 
 import Home from "Pages/Home";
 import Portfolio from "Pages/Portfolio";

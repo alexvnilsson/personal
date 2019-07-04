@@ -1,0 +1,227 @@
+@include media-breakpoint-up(lg) {
+  .timeline-group {
+    .timeline-group-title {
+      font-size: 2.5em;
+    }
+  }
+
+  .timeline {
+    .timeline-item {
+      @include flex-container(column, flex-start, stretch);
+
+      padding: 1.5em 0;
+
+      .timeline-title {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .timeline-group {
+    padding: 1em 0 0 0;
+
+    .timeline-group-title {
+      margin: 0 0.5em;
+      font-size: 1.75em;
+    }
+
+    &:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.33);
+    }
+  }
+
+  .timeline {
+    .timeline-item {
+      @include flex-container(column, flex-start, stretch);
+
+      &:not(:first-child) {
+        padding-top: 2em;
+      }
+
+      padding: 1.5em 0 0 0;
+
+      .timeline-title,
+      .timeline-content,
+      .timeline-footer {
+        padding: 0 1em;
+      }
+
+      .timeline-content {
+        padding-bottom: 1em;
+      }
+
+      &:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .timeline-title {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+}
+
+.timeline-group {
+  .timeline-group-title {
+    font-weight: 300;
+    line-height: normal;
+  }
+}
+
+.timeline {
+  position: relative;
+
+  .vertical-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+
+    border-left-width: 1px;
+    border-left-style: solid;
+
+    z-index: 0;
+  }
+
+  .timeline-item {
+    margin: 0;
+
+    .timeline-title {
+      flex: 1;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      .tagline-text {
+        display: flex;
+
+        border-radius: 30px;
+
+        margin: 0;
+        padding: 0.25rem 0.5rem;
+
+        line-height: normal;
+        font-size: 0.85rem;
+        font-weight: 300;
+
+        z-index: 2;
+      }
+
+      .title-text {
+        display: flex;
+        margin: 0 0 0 0.5em;
+
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .timeline-subheading {
+      display: block;
+      margin: 0 0 0.5em 0;
+      padding: 0.25em 1em;
+      max-width: max-content;
+
+      span {
+        font-size: 0.75em;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.25px;
+      }
+
+      border-radius: 30px;
+    }
+
+    .timeline-content {
+      flex: 1;
+
+      &:not(:last-child) {
+        padding-bottom: 0.5em;
+      }
+      &:last-child {
+        padding-bottom: 1.5em;
+      }
+
+      .title {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      .content {
+        font-size: 1.25em;
+      }
+    }
+
+    .timeline-footer {
+      flex: 1;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: flex-end;
+
+      margin-top: 0.5em;
+      padding-top: 0.5em;
+      padding-bottom: 1em;
+
+      & > .footer-item:not(:first-child) {
+        margin-left: 1em;
+      }
+
+      .footer-item {
+        flex: 1;
+
+        .item-label {
+          margin: 0;
+          padding: 0;
+
+          font-size: 0.66em;
+          line-height: 0.66em;
+          text-transform: uppercase;
+          letter-spacing: 0.3px;
+          opacity: 0.8;
+        }
+
+        .item-content {
+          margin: 0;
+
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+}
+
+.content-container {
+  &-dark {
+    .timeline .timeline-item .timeline-subheading {
+      background-color: rgb(200, 200, 200);
+      color: #757575;
+    }
+
+    .timeline .timeline-item .timeline-title .tagline-text {
+      background-color: rgb(240, 240, 240);
+      color: #454545;
+    }
+  }
+
+  &-light {
+    .timeline .timeline-item .timeline-subheading {
+      background-color: rgb(200, 200, 200);
+      box-shadow: 0px 0px 2px 0px #757575;
+      color: #252525;
+    }
+
+    .timeline .timeline-item .timeline-title .tagline-text {
+      background-color: rgb(40, 40, 40);
+      color: #fefefe;
+    }
+  }
+}

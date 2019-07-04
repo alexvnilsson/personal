@@ -4,7 +4,7 @@ import Deck, { DeckTitle, DeckBody, DeckGroup } from "Core/UI/Components/Deck";
 import Progress from "Core/UI/Components/Progress";
 import ListItem from "Core/UI/Components/ListItem";
 
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { TransitionGroup } from "react-transition-group";
 import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 
 import { store, actions } from "Core/UI/Store";
@@ -21,6 +21,7 @@ export default class Toolbox extends Component {
           <div className="content text-dark">
             <img
               src="assets/parts/layers.png"
+              alt="Tre lager ovanpå varandra i olika färger."
               style={{
                 position: "absolute",
                 right: "0px",

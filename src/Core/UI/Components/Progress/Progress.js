@@ -90,14 +90,7 @@ export class ProgressRadial extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      radius,
-      strokeWidth,
-      dimension,
-      color,
-      value
-    } = this.props;
+    const { className, radius, strokeWidth, dimension, value } = this.props;
 
     const circleRadius = Math.min(radius, 45);
     const circumference = 2 * Math.PI * circleRadius;

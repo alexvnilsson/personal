@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import Posed, { PoseGroup } from "react-pose";
+import Posed from "react-pose";
 
 const FadeInTransition = Posed.div({
   visible: {

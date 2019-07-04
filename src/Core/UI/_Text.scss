@@ -81,6 +81,12 @@ $text-alignments: (left, center, right);
       line-height: 22px;
     }
   }
+
+  &-shadow {
+    &-minimal {
+      text-shadow: 1px 1px 3px #252525;
+    }
+  }
 }
 
 /// Elemental styling
