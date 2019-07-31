@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 import { store, actions } from "Core/UI/Store";
 
-import { TimelineEducation, TimelineWorkExperience } from "./Components";
+import Resume from "../Data/resume.json";
+
+import {
+  Timeline,
+  TimelineItem
+} from "Core/UI/Components/Itemization/Timeline";
 
 import Button from "Core/UI/Components/Button";
 
@@ -18,6 +23,14 @@ export default class Home extends Component {
         header: "dark"
       })
     );
+  }
+
+  getResumeItemContent(item) {
+    if (typeof item.body !== "undefined" && Array.isArray(item.body)) {
+      return item.body.map(subitem => React.createElement("p", null, subitem));
+    } else if (typeof item.body === "string") {
+      return item.body;
+    }
   }
 
   render() {
@@ -82,13 +95,35 @@ export default class Home extends Component {
               <div className="timeline-group">
                 <h2 className="timeline-group-title">Arbetslivserfarenhet</h2>
 
-                <TimelineWorkExperience />
+                <Timeline>
+                  {Resume.work.map((item, index) => (
+                    <TimelineItem
+                      heading={item.title || "Title"}
+                      subheading={item.subtitle || "Subtitle"}
+                      tagline={item.dateline || "Dateline"}
+                      footer={item.footer || []}
+                    >
+                      {this.getResumeItemContent(item)}
+                    </TimelineItem>
+                  ))}
+                </Timeline>
               </div>
 
               <div className="timeline-group">
                 <h2 className="timeline-group-title">Utbildning</h2>
 
-                <TimelineEducation />
+                <Timeline>
+                  {Resume.education.map((item, index) => (
+                    <TimelineItem
+                      heading={item.title || "Title"}
+                      subheading={item.subtitle || "Subtitle"}
+                      tagline={item.dateline || "Dateline"}
+                      footer={item.footer || []}
+                    >
+                      {this.getResumeItemContent(item)}
+                    </TimelineItem>
+                  ))}
+                </Timeline>
               </div>
             </FadeIn>
 
