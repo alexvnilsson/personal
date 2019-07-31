@@ -7,149 +7,157 @@ import ListItem from "Core/UI/Components/ListItem";
 import { TransitionGroup } from "react-transition-group";
 import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 
+import { SpaceSeparator } from "Core/UI/Components/Separators";
+
 import { store, actions } from "Core/UI/Store";
 
 export default class Toolbox extends Component {
   componentWillMount() {
-    store.dispatch(actions.setColorTheme("light"));
+    store.dispatch(actions.setColorTheme({ body: "light", header: "light" }));
   }
 
   render() {
     return (
-      <div className="back-light">
+      <div className="page page-toolbox">
         <FadeIn delay={100} duration={1000}>
-          <div className="content text-dark">
-            <img
-              src="assets/parts/layers.png"
-              alt="Tre lager ovanpå varandra i olika färger."
-              style={{
-                position: "absolute",
-                right: "0px",
-                top: "0px",
-                width: "300px",
-                zIndex: "-9999"
-              }}
-            />
-            <h1 class="font-weight-normal">Min verktygslåda</h1>
+          <div
+            className="content-container-light"
+            style={{
+              backgroundImage: "url(assets/parts/layers.png)",
+              backgroundPosition: "85% top",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "288px"
+            }}
+          >
+            <div className="pre-content mb-4">
+              <h1 className="font-weight-normal">Min verktygslåda</h1>
+              <h6>
+                Detaljerad genomgång över teknologier jag har erfarenhet av i
+                produktionsmiljöer.
+              </h6>
+            </div>
 
-            <p>
-              Detaljerad genomgång över teknologier jag har erfarenhet av i
-              produktionsmiljöer.
-            </p>
+            <div className="content text-dark">
+              <TransitionGroup className="container">
+                <FadeInAndPanDown delay={200} duration={500}>
+                  <Deck pad bgColor="#324b96" color="#f5f5f5">
+                    <DeckTitle>Datalogik</DeckTitle>
 
-            <div className="margin-top-3" />
+                    <DeckBody>
+                      <DeckGroup>
+                        <ListItem title="MySQL" icon="mysql">
+                          <Progress type="linear" value="80" />
 
-            <TransitionGroup>
-              <FadeInAndPanDown delay="200" duration="500">
-                <Deck bgColor="#324b96" color="#f5f5f5">
-                  <DeckTitle>Datalogik</DeckTitle>
+                          <p className="description">
+                            Erfarenhet av (Query SQL)?, MySQL Workbench
+                          </p>
+                        </ListItem>
 
-                  <DeckBody>
-                    <DeckGroup>
-                      <ListItem title="MySQL" icon="mysql">
-                        <Progress type="linear" value="80" />
+                        <ListItem title="SQL Server" icon="sqlserver">
+                          <Progress type="linear" value={50} />
 
-                        <p className="description">
-                          Erfarenhet av (Query SQL)?, MySQL Workbench
-                        </p>
-                      </ListItem>
+                          <p className="description">
+                            Erfarenhet av Transact-SQL, Migrations med EF
+                            <sup>1</sup> Core och EF 6+
+                            <br />
+                            <br />
+                            <sup>1</sup> <small>Entity Framework</small>
+                          </p>
+                        </ListItem>
 
-                      <ListItem title="SQL Server" icon="sqlserver">
-                        <Progress type="linear" value={50} />
+                        <ListItem title="MongoDB" icon="mongodb">
+                          <Progress type="linear" value="40" />
 
-                        <p className="description">
-                          Erfarenhet av Transact-SQL, Migrations med EF
-                          <sup>1</sup> Core och EF 6+
-                          <br />
-                          <br />
-                          <sup>1</sup> <small>Entity Framework</small>
-                        </p>
-                      </ListItem>
+                          <p className="description">
+                            Erfarenhet av användning med NodeJS-baserade servrar
+                          </p>
+                        </ListItem>
+                      </DeckGroup>
+                    </DeckBody>
+                  </Deck>
+                </FadeInAndPanDown>
 
-                      <ListItem title="MongoDB" icon="mongodb">
-                        <Progress type="linear" value="40" />
+                <SpaceSeparator />
 
-                        <p className="description">
-                          Erfarenhet av användning med NodeJS-baserade servrar
-                        </p>
-                      </ListItem>
-                    </DeckGroup>
-                  </DeckBody>
-                </Deck>
-              </FadeInAndPanDown>
+                <FadeInAndPanDown delay={300} duration={500}>
+                  <Deck pad bgColor="#32e1c8" color="#2d2d2d">
+                    <DeckTitle>Affärslogik</DeckTitle>
 
-              <div className="margin-top-4" />
+                    <DeckBody>
+                      <DeckGroup title="NodeJS">
+                        <ListItem title="ExpressJS" icon="expressjs">
+                          <Progress type="linear" value="75" />
 
-              <FadeInAndPanDown delay="300" duration="500">
-                <Deck bgColor="#32e1c8" color="#2d2d2d">
-                  <DeckTitle>Affärslogik</DeckTitle>
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
 
-                  <DeckBody>
-                    <DeckGroup title="NodeJS">
-                      <ListItem title="ExpressJS" icon="expressjs">
-                        <Progress type="linear" value="75" />
+                        <ListItem title="SailsJS" icon="sailsjs">
+                          <Progress type="linear" value="40" />
 
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
+                      </DeckGroup>
 
-                      <ListItem title="SailsJS" icon="sailsjs">
-                        <Progress type="linear" value="40" />
+                      <DeckGroup title="Microsoft">
+                        <ListItem title="ASP.NET Core MVC" icon="netcore">
+                          <Progress type="linear" value="66" />
 
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
-                    </DeckGroup>
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
+                      </DeckGroup>
+                    </DeckBody>
+                  </Deck>
+                </FadeInAndPanDown>
 
-                    <DeckGroup title="Microsoft">
-                      <ListItem title="ASP.NET Core MVC" icon="netcore">
-                        <Progress type="linear" value="66" />
+                <SpaceSeparator />
 
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
-                    </DeckGroup>
-                  </DeckBody>
-                </Deck>
-              </FadeInAndPanDown>
+                <FadeInAndPanDown delay={400} duration={500}>
+                  <Deck pad bgColor="rgb(255, 200, 50)" color="#2d2d2d">
+                    <DeckTitle>Presentationslager</DeckTitle>
 
-              <div className="margin-top-4" />
+                    <DeckBody>
+                      <DeckGroup title="NodeJS">
+                        <ListItem title="Angular" icon="angular">
+                          <Progress type="linear" value="80" />
 
-              <FadeInAndPanDown delay="400" duration="500">
-                <Deck bgColor="#ffaf00" color="#2d2d2d">
-                  <DeckTitle>Presentationslager</DeckTitle>
+                          <p className="description">
+                            Utvecklat stor-skaliga affärssystem för ...
+                          </p>
+                        </ListItem>
 
-                  <DeckBody>
-                    <DeckGroup title="NodeJS">
-                      <ListItem title="Angular" icon="angular">
-                        <Progress type="linear" value="80" />
+                        <ListItem title="React" icon="react">
+                          <Progress type="linear" value="66" />
 
-                        <p className="description">
-                          Utvecklat stor-skaliga affärssystem för ...
-                        </p>
-                      </ListItem>
+                          <p className="description" />
+                        </ListItem>
 
-                      <ListItem title="React" icon="react">
-                        <Progress type="linear" value="66" />
+                        <ListItem title="VueJS" icon="vuejs">
+                          <Progress type="linear" value="75" />
 
-                        <p className="description" />
-                      </ListItem>
+                          <p className="description" />
+                        </ListItem>
+                      </DeckGroup>
 
-                      <ListItem title="VueJS" icon="vuejs">
-                        <Progress type="linear" value="75" />
+                      <DeckGroup title="Microsoft">
+                        <ListItem title="ASP.NET Core MVC" icon="netcore">
+                          <Progress type="linear" value="66" />
 
-                        <p className="description" />
-                      </ListItem>
-                    </DeckGroup>
-
-                    <DeckGroup title="Microsoft">
-                      <ListItem title="ASP.NET Core MVC" icon="netcore">
-                        <Progress type="linear" value="66" />
-
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
-                    </DeckGroup>
-                  </DeckBody>
-                </Deck>
-              </FadeInAndPanDown>
-            </TransitionGroup>
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
+                      </DeckGroup>
+                    </DeckBody>
+                  </Deck>
+                </FadeInAndPanDown>
+              </TransitionGroup>
+            </div>
           </div>
         </FadeIn>
       </div>

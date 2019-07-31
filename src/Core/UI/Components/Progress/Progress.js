@@ -38,12 +38,7 @@ export class ProgressLinear extends React.Component {
       <div
         className="progress-linear"
         style={{
-          backgroundColor: this.colorRange(bgColor).alpha(0.25),
-          boxShadow:
-            Chroma(bgColor)
-              .darken(1)
-              .desaturate(1)
-              .alpha(0.5) + " 0px 0px 3px 1px"
+          backgroundColor: this.colorRange(bgColor).alpha(0.25)
         }}
       >
         <div

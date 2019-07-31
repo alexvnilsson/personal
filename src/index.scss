@@ -26,25 +26,51 @@ body {
   cursor: default;
 
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+
+  &.dark {
+    background-color: $app--background-color;
+  }
+  &.light {
+    background-color: $app--background-color--light;
+  }
+}
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .app-header-container {
+    flex: auto;
+  }
+
+  .page {
+    flex: auto;
+
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
 }
 
 .content-container {
-  &-dark,
-  .content {
+  &-dark {
     background-color: $app--background-color;
     color: $app--color;
+
+    .content {
+      color: $app--color;
+    }
   }
 
-  &-light,
-  .content {
+  &-light {
     background-color: $app--background-color--light;
     color: $app--color--light;
-  }
 
-  &-dark,
-  &-light {
-    .container {
-      overflow: hidden;
+    .content {
+      color: $app--color--light;
     }
   }
 }
@@ -91,6 +117,14 @@ body {
 .app-header-container {
   position: relative;
 
+  .app-header {
+    .header-brand {
+      .brand-logo {
+        transition: fill 0.5s ease-in-out;
+      }
+    }
+  }
+
   &.dark {
     background-color: $app--background-color;
 
@@ -104,10 +138,14 @@ body {
           color: rgb(250, 250, 250);
         }
       }
+
+      .nav-icon {
+        fill: rgb(250, 250, 250);
+      }
     }
   }
 
-  .light {
+  &.light {
     background-color: $app--background-color--light;
 
     .app-header {
@@ -119,6 +157,10 @@ body {
         .brand-name {
           color: rgb(5, 5, 5);
         }
+      }
+
+      .nav-icon {
+        fill: rgb(10, 10, 10);
       }
     }
   }
@@ -154,17 +196,17 @@ body {
       padding: 0;
       list-style-type: none;
 
-      li {
+      li.nav-item {
         display: inline-block;
-        margin: 0 1rem;
+        margin: 0;
 
-        &:last-child {
-          margin-right: 0;
+        &:not(:last-child) {
+          margin-right: 0.25rem;
         }
 
         line-height: 1em;
 
-        a {
+        a.nav-link {
           display: inline-block;
 
           font-size: 0.75em;
@@ -172,6 +214,18 @@ body {
 
           color: rgb(225, 225, 225);
           text-decoration: none;
+
+          .nav-icon {
+            transition: fill 0.5s ease-in-out;
+
+            &.dark {
+              fill: $app--color;
+            }
+
+            &.light {
+              fill: $app--color--light;
+            }
+          }
         }
       }
     }

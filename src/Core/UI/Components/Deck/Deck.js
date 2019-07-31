@@ -1,10 +1,15 @@
 ﻿import React from "react";
+import classNames from "classnames";
 
 import Css from "Core/UI/Css";
 import Chroma from "chroma-js";
 
 export default class Deck extends React.Component {
   render() {
+    const { pad } = this.props;
+
+    const isPadded = typeof pad !== "undefined" && pad !== false;
+
     const bgColor = this.props.bgColor ? this.props.bgColor : "#fefefe";
     const color = this.props.color ? this.props.color : "#050505";
 
@@ -34,7 +39,10 @@ export default class Deck extends React.Component {
     };
 
     return (
-      <div className="deck" style={deckStyle}>
+      <div
+        className={classNames("deck", isPadded ? "deck-padding" : "")}
+        style={deckStyle}
+      >
         {this.props.children}
       </div>
     );
@@ -49,7 +57,7 @@ export class DeckTitle extends React.Component {
 
 export class DeckBody extends React.Component {
   render() {
-    return <div className="deck-body">{this.props.children}</div>;
+    return <div className={classNames("deck-body")}>{this.props.children}</div>;
   }
 }
 

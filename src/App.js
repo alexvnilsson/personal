@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import { store } from "Core/UI/Store";
 
@@ -17,20 +18,29 @@ export default class App extends Component {
   constructor() {
     super();
 
-    this.colorTheme = "";
+    this.colorTheme = {
+      body: "",
+      header: ""
+    };
   }
 
   componentWillMount() {
     this.uiStoreListener = store.subscribe(() => {
       const state = store.getState();
 
-      if (this.colorTheme !== state.colorTheme) {
-        document.body.classList.add(state.colorTheme);
+      if (
+        this.colorTheme.body !== state.colorTheme.body ||
+        !this.colorTheme ||
+        !state.colorTheme
+      ) {
+        console.log(state.colorTheme);
+        if (typeof state.colorTheme.body !== "undefined") {
+          document.body.classList.add(state.colorTheme.body);
 
-        if (this.colorTheme) {
-          document.body.classList.remove(this.colorTheme);
+          if (this.colorTheme.body.length > 0) {
+            document.body.classList.remove(this.colorTheme.body);
+          }
         }
-
         this.colorTheme = state.colorTheme;
       }
     });
@@ -44,15 +54,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
-        <RestoreScroll>
-          <AppHeader />
+      <Provider store={store}>
+        <Router>
+          <RestoreScroll>
+            <AppHeader />
 
-          <Route exact path="/" component={Home} />
-          <Route exact path="/portfolio" component={Portfolio} />
-          <Route exact path="/toolbox" component={Toolbox} />
-        </RestoreScroll>
-      </Router>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/portfolio" component={Portfolio} />
+            <Route exact path="/toolbox" component={Toolbox} />
+          </RestoreScroll>
+        </Router>
+      </Provider>
     );
   }
 }

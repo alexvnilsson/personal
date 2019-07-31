@@ -25,6 +25,16 @@ export default class FadeInAndPanDown extends React.Component {
     );
   }
 
+  get delayMs() {
+    if (typeof this.props.delay === "undefined") {
+      return 50;
+    } else if (typeof this.props.delay !== "number") {
+      return 50;
+    }
+
+    return this.props.delay;
+  }
+
   render() {
     const defaultStyle = {
       transition: `all ${this.props.duration}ms ease-in-out`,
@@ -40,7 +50,11 @@ export default class FadeInAndPanDown extends React.Component {
     };
 
     return (
-      <Transition in={this.state.goIn} timeout={this.props.duration}>
+      <Transition
+        in={this.state.goIn}
+        timeout={this.delayMs}
+        duration={this.props.duration}
+      >
         {state => (
           <div
             style={{

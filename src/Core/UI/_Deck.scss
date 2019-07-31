@@ -20,9 +20,14 @@
 
   background-color: #fefefe;
   box-shadow: #858585 0px 0px 3px 0px, #a4a4a4 0px 0px 9px 0px;
-  border-radius: 1px;
+  border-radius: 30px;
 
   overflow: hidden;
+
+  &.deck-padding {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
   & > .title {
     margin: 0.5rem 1.5rem 0 1.5rem;

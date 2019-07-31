@@ -2,8 +2,7 @@
 
 import {
   Timeline,
-  TimelineItem,
-  TimelineHighlight
+  TimelineItem
 } from "Core/UI/Components/Itemization/Timeline";
 
 export default class TimelineEducation extends React.Component {

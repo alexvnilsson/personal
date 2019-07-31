@@ -10,15 +10,11 @@ import Icon from "Core/UI/Components/Icon";
 export default class AppHeader extends Component {
   constructor() {
     super();
-
-    this.iconFill = "";
   }
 
   componentWillMount() {
     this.uiStoreListener = store.subscribe(() => {
       const state = store.getState();
-
-      this.iconFill = state.colorTheme === "dark" ? "#fff" : "#000";
 
       this.forceUpdate();
     });
@@ -33,8 +29,26 @@ export default class AppHeader extends Component {
   render() {
     const { colorTheme } = store.getState();
 
+    const navItems = [
+      {
+        href: "https://github.com/alexvnilsson",
+        target: "_blank",
+        icon: "github"
+      },
+      {
+        href: "https://www.linkedin.com/in/alexvnilsson",
+        target: "_blank",
+        icon: "linkedin"
+      }
+    ];
+
     return (
-      <div className={classNames("app-header-container", colorTheme)}>
+      <div
+        className={classNames(
+          "app-header-container",
+          colorTheme.header || "light"
+        )}
+      >
         <header className="app-header content">
           <Link to="/" className="header-brand">
             <BrandLogo className="brand-logo" />
@@ -42,30 +56,20 @@ export default class AppHeader extends Component {
           </Link>
 
           <ul className="header-right-nav">
-            <li>
-              <a
-                href="https://github.com/alexvnilsson"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Icon fill={this.iconFill} width="25px">
-                  github
-                </Icon>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/alexvnilsson/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Icon fill={this.iconFill} width="25px">
-                  linkedin
-                </Icon>
-              </a>
-            </li>
-            {/* <li><a href="https://github.com/alexvnilsson" target="_blank" rel="noreferrer noopener"><img src={process.env.PUBLIC_URL + "/assets/github-logo.svg"} alt="Github" width="25px" /></a></li>
-            <li><a href="https://www.linkedin.com/in/alexvnilsson/" target="_blank" rel="noreferrer noopener"><img src={process.env.PUBLIC_URL + "/assets/linkedin-logo.svg"} alt="LinkedIn" width="25px" /></a></li> */}
+            {navItems.map((item, index) => (
+              <li key={index} className="nav-item">
+                <a
+                  className="nav-link"
+                  href={item.href}
+                  target={item.target || "_blank"}
+                  rel="noreferrer noopener"
+                >
+                  <Icon className={classNames("nav-icon")} width="25px">
+                    {item.icon}
+                  </Icon>
+                </a>
+              </li>
+            ))}
           </ul>
         </header>
       </div>

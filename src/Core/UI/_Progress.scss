@@ -6,7 +6,6 @@
 
   padding: 0;
   background-color: rgb(240, 240, 240);
-  //box-shadow: #c6c6c6 0px 0px 2px 0px;
 
   border-radius: $progressbar-border-radius;
 
@@ -23,8 +22,7 @@
     flex-direction: row;
     align-items: stretch;
 
-    border-top-right-radius: $progressbar-border-radius;
-    border-bottom-right-radius: $progressbar-border-radius;
+    border-radius: $progressbar-border-radius;
   }
 }
 

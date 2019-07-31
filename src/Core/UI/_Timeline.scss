@@ -24,7 +24,9 @@
 
     .timeline-group-title {
       margin: 0 0.5em;
-      font-size: 1.75em;
+      font-size: 2.25rem;
+      font-size: 4vmin;
+      font-size: 5vmax;
     }
 
     &:nth-child(even) {
@@ -104,7 +106,7 @@
 
         border-radius: 30px;
 
-        margin: 0;
+        margin: 0 1rem 0 0;
         padding: 0.25rem 0.5rem;
 
         line-height: normal;
@@ -114,29 +116,34 @@
         z-index: 2;
       }
 
-      .title-text {
+      .title-content {
         display: flex;
-        margin: 0 0 0 0.5em;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
 
-        font-weight: 400;
-        line-height: normal;
+        .title-text {
+          display: flex;
+          margin: 0;
+
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        .timeline-subheading {
+          display: block;
+          margin: 0;
+          padding: 0;
+          max-width: max-content;
+
+          span {
+            font-size: 0.85em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.25px;
+          }
+        }
       }
-    }
-
-    .timeline-subheading {
-      display: block;
-      margin: 0 0 0.5em 0;
-      padding: 0.25em 1em;
-      max-width: max-content;
-
-      span {
-        font-size: 0.75em;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.25px;
-      }
-
-      border-radius: 30px;
     }
 
     .timeline-content {
@@ -202,7 +209,6 @@
 .content-container {
   &-dark {
     .timeline .timeline-item .timeline-subheading {
-      background-color: rgb(200, 200, 200);
       color: #757575;
     }
 
@@ -214,13 +220,11 @@
 
   &-light {
     .timeline .timeline-item .timeline-subheading {
-      background-color: rgb(200, 200, 200);
-      box-shadow: 0px 0px 2px 0px #757575;
       color: #252525;
     }
 
     .timeline .timeline-item .timeline-title .tagline-text {
-      background-color: rgb(40, 40, 40);
+      background-color: rgb(0, 75, 200);
       color: #fefefe;
     }
   }
