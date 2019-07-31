@@ -8,14 +8,8 @@ import BrandLogo from "Core/UI/BrandLogo";
 import Icon from "Core/UI/Components/Icon";
 
 export default class AppHeader extends Component {
-  constructor() {
-    super();
-  }
-
   componentWillMount() {
     this.uiStoreListener = store.subscribe(() => {
-      const state = store.getState();
-
       this.forceUpdate();
     });
   }
