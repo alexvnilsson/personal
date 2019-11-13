@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { store, actions } from "Core/UI/Store";
 
-import Resume from "../Data/resume.json";
+import Resume from "../../data/resume.json";
 
 import {
   Timeline,
