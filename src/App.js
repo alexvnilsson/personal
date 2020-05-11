@@ -12,8 +12,6 @@ import Home from "Pages/Home";
 import Portfolio from "Pages/Portfolio";
 import Toolbox from "Pages/Toolbox";
 
-const appBasePath = process.env.NODE_ENV === "development" ? "/" : "/personal";
-
 // @TODO Implement https://github.com/maisano/react-router-transition
 
 export default class App extends Component {
@@ -56,7 +54,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router basename={appBasePath}>
+        <Router>
           <RestoreScroll>
             <AppHeader />
 
