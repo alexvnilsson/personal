@@ -1,0 +1,118 @@
+﻿@import "bootstrap/scss/mixins/breakpoints";
+
+@include media-breakpoint-up(md) {
+  .deck {
+    max-width: map-get($container-max-widths, md);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .deck {
+    max-width: map-get($container-max-widths, sm);
+  }
+}
+
+.deck {
+  @include make-container();
+
+  min-height: 5em;
+  padding: 0.75rem 0 0 0;
+
+  background-color: #fefefe;
+  box-shadow: #858585 0px 0px 3px 0px, #a4a4a4 0px 0px 9px 0px;
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  &.deck-padding {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  & > .title {
+    margin: 0.5rem 1.5rem 0 1.5rem;
+
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .deck-body {
+    margin-top: 1em;
+
+    .deck-group {
+      &:not(:first-child) {
+        margin-top: 2em;
+      }
+
+      & > .subtitle {
+        margin: 0.33rem 0.75rem 0.33em 0.75rem;
+
+        //color: rgb(100, 100, 100);
+
+        font-weight: 600;
+        letter-spacing: 0px;
+      }
+
+      & > .listitem:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      & > .listitem {
+        background-color: transparent;
+
+        @include make-row();
+        justify-content: space-between;
+
+        margin: 0;
+        padding: 0.5rem 1.5rem;
+
+        & > .title {
+          @include make-col(6);
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+
+          & > .title-icon,
+          & > .title-wrapper > .title-icon {
+            min-width: 35px;
+            max-width: 35px;
+            max-width: 35px;
+            max-height: 35px;
+
+            margin-right: 0.5em;
+          }
+
+          & > .title-text,
+          & > .title-wrapper > .title-text {
+            margin: 0;
+            font-weight: 400;
+          }
+
+          & > .title-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            font-weight: 500;
+          }
+        }
+
+        & > .body {
+          @include make-col(4);
+          align-content: space-between;
+
+          padding: 0.5rem 0.25rem;
+
+          & > .description {
+            margin: 0.5rem 0 0 0;
+
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}

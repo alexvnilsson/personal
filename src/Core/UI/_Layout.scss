@@ -1,151 +1,45 @@
-/// Screen estate
-
-$screen-width-breakpoints: (
-  xs 320px,
-  s 420px,
-  m 720px,
-  l 1020px,
-  xl 1420px
-);
-
-/// Flex layout
-
-$flex-alignments: (
-  auto,
-  baseline
-  flex-start,
-  flex-end,
-  center,
-  stretch,
-  space-between,
-  space-around,
-  unset
-);
-
-.flex {
-  display: flex;
+.grid-responsive {
+  display: grid;
 }
 
-.flex-inline {
-  display: inline-flex;
-}
+.page-separator {
+  margin: 0;
+  padding: 0 0 1em 0;
+  overflow: hidden;
 
-.flex,
-.flex-inline {
-  @each $alignment in $flex-alignments {
-    .justify-#{$alignment} {
-      justify-content: $alignment !important;
-    }
-
-    .align-#{$alignment} {
-      align-items: $alignment !important;
-    }
-  }
-
-  &.row {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  &.column {
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  &.self,
-  & > .self {
-    @each $alignment in $flex-alignments {
-      &-justify-#{$alignment} {
-        justify-self: $alignment;
-      }
-
-      &-align-#{$alignment} {
-        align-self: $alignment;
-      }
-    }
-  }
-
-  &.no-wrap {
-    flex-wrap: nowrap;
+  .separator-shape {
+    filter: drop-shadow(0px 0px 4px #333333);
   }
 }
 
-/// Display
-
-.inline-block {
-  display: inline-block;
-}
-
-/// Margins
-
-$margin-selectors: (
-  top,
-  left,
-  bottom,
-  right
-);
-
-$measurements-values: (
-  auto auto,
-  0 0,
-  tiny 0.33rem,
-  1 1rem,
-  2 1.5rem,
-  3 2rem,
-  4 2.5rem,
-  5 3rem,
-  6 3.5rem
-);
-
-.margin {
-  @each $name, $val in $measurements-values {
-    &-#{$name} {
-      margin: $val;
+@include media-breakpoint-down(md) {
+  .grid-responsive {
+    // left or top
+    .lot {
+      grid-column: 1;
+      grid-row: 1;
     }
-  }
 
-  @each $selector in $margin-selectors {
-    &-#{$selector} {
-      @each $name, $val in $measurements-values {
-        &-#{$name} {
-          margin-#{$selector}: $val;
-        }
-      }
-    }
-  }
-
-  &-y {
-    @each $name, $val in $measurements-values {
-      &-#{$name} {
-        margin-top: $val;
-        margin-bottom: $val;
-      }
+    // right or bottom
+    .rob {
+      grid-column: 1;
+      grid-row: 2;
     }
   }
 }
 
-.padding {
-  @each $name, $val in $measurements-values {
-    &-#{$name} {
-      padding: $val;
+@include media-breakpoint-up(lg) {
+  .grid-responsive {
+    // left or top
+    .lot {
+      grid-column: 1;
+      grid-row: 1;
     }
-  }
 
-  @each $selector in $margin-selectors {
-    &-#{$selector} {
-      @each $name, $val in $measurements-values {
-        &-#{$name} {
-          padding-#{$selector}: $val;
-        }
-      }
-    }
-  }
-
-  &-y {
-    @each $name, $val in $measurements-values {
-      &-#{$name} {
-        padding-top: $val;
-        padding-bottom: $val;
-      }
+    // right or bottom
+    .rob {
+      grid-column: 2;
+      grid-row: 1;
     }
   }
 }

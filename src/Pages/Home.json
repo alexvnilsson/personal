@@ -1,0 +1,71 @@
+{
+  "education": [
+    {
+      "title": "IT-gymnasiet Skövde",
+      "subtitle": "El- och energiprogrammet",
+      "dateline": "2014",
+      "body": "Se föregående punkt (Grillska gymnasiet, Datakunskaplig inriktning).",
+      "footer": [
+        {
+          "label": "Plats",
+          "content": "Skövde"
+        }
+      ]
+    },
+    {
+      "title": "Grillska gymnasiet",
+      "subtitle": "El- och energiprogrammet",
+      "dateline": "2013",
+      "body": [
+        "Lärde mig att driva automatiserade produktionssystem och kommunikationssystem; att underhålla industribyggnader och maskiner; att reparera, administrera och underhålla datorsystem, elanläggningar och datanät; grundläggande informationssäkerhet samt drift, underhåll och service inom energi-, miljö- och vattenteknikbranscherna.",
+        "Fortsatte utbildningen i Skövde."
+      ],
+      "footer": [
+        {
+          "label": "Plats",
+          "content": "Västerås"
+        }
+      ]
+    }
+  ],
+  "work": [
+    {
+      "title": "Greater Than AB",
+      "subtitle": "Full-stack utvecklare",
+      "dateline": "2018",
+      "body": [
+        "Blev rekryterad av Greater Than i mitten av 2018, anställdes som full-stack utvecklare av webb- och mobilapplikationer och -systemlösningar."
+      ],
+      "footer": [
+        {
+          "label": "Bransch",
+          "content": "InsurTech"
+        },
+        {
+          "label": "Plats",
+          "content": "Stockholm"
+        },
+        {
+          "label": "Referenser",
+          "content": "På begäran"
+        }
+      ]
+    },
+    {
+      "title": "Egenföretagare",
+      "subtitle": "NetCommando AB",
+      "dateline": "2016",
+      "body": [
+        "Drev egen firma fr.o.m. sena 2015 under mitt egna namn, hösten 2016 grundade jag och några kompanjoner ett aktiebolag med namnet NC NetCommando AB."
+      ]
+    },
+    {
+      "title": "ProPublic AB",
+      "subtitle": "System- och webbutvecklare",
+      "dateline": "2013",
+      "body": [
+        "Drev webbutveckling och -drift åt denna konsultfirma som startade sin verksamhet vid årsskiftet 2013-2014. Här hade jag möjlighet att under flexibla omständigheter utveckla mina komptenser inom området."
+      ]
+    }
+  ]
+}

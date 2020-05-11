@@ -1,82 +1,135 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+﻿import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import { store, actions } from 'Core/UI/Store';
+import { store, actions } from "Core/UI/Store";
 
-import Button from 'Core/UI/Components/Button';
+import PageData from "./Home.json";
 
-import { Timeline, TimelineItem } from 'Core/UI/Components/Itemization';
+import {
+  Timeline,
+  TimelineItem
+} from "Core/UI/Components/Itemization/Timeline";
+
+import Button from "Core/UI/Components/Button";
+
+import { PageSeparator } from "Core/UI/Components/Separators";
+import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 
 export default class Home extends Component {
   componentWillMount() {
-    store.dispatch(actions.setColorTheme('dark'));
+    store.dispatch(
+      actions.setColorTheme({
+        body: "light",
+        header: "dark"
+      })
+    );
+  }
+
+  getResumeItemContent(item) {
+    if (typeof item.body !== "undefined" && Array.isArray(item.body)) {
+      return item.body.map(subitem => React.createElement("p", null, subitem));
+    } else if (typeof item.body === "string") {
+      return item.body;
+    }
   }
 
   render() {
     return (
-      <div className="content">
-        <h1>Alexander Nilsson ‐ en webbutvecklare</h1>
+      <div className="page page-home">
+        <div className="content-container-dark">
+          <div className="pre-content">
+            <h1 className="font-weight-normal">Alexander Nilsson</h1>
+            <h3>Webbutveckling, projektplanering?, med mera.</h3>
+          </div>
 
-        <p>
-          Jag har under större delen av 2010-talet utbildat mig & arbetat med webbdesign och -teknik.
-        </p>
+          <div className="content">
+            <FadeInAndPanDown duration={750}>
+              <div className="row no-gutters justify-content-center my-4 py-4">
+                <div className="mb-4 mb-md-0 col-md-3 text-center position-relatvie">
+                  <FadeInAndPanDown duration={1250}>
+                    <img
+                      src="assets/parts/layers.png"
+                      alt="Tre lager ovanpå varandra i olika färger."
+                      style={{
+                        marginLeft: "1em",
+                        maxWidth: "66vw",
+                        maxHeight: "177px",
+                        opacity: 0.75
+                      }}
+                    />
+                  </FadeInAndPanDown>
+                </div>
 
-        <p className="text-align-center margin-y-3">
-          <Link to="/portfolio">
-            <Button>Portfölj</Button>
-          </Link>
+                <div className="col-md-9 align-self-center">
+                  <div className="container text-shadow-minimal">
+                    <h2 className="font-weight-light text-upper-heading">
+                      Hela stacken
+                    </h2>
 
-          <br />
+                    <p className="text-readable-2x">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas elementum viverra consectetur. Aenean vel erat ut
+                      tellus aliquam laoreet. Suspendisse potenti. In hac
+                      habitasse platea dictumst. Quisque dapibus dolor eleifend
+                      interdum dictum. Interdum et malesuada fames ac ante ipsum
+                      primis in faucibus.
+                    </p>
 
-          <span className="inline-block margin-top-1 text-darken">eller läs mer nedan</span>
-        </p>
+                    <div className="mt-4 text-center">
+                      <Link to="/toolbox">
+                        <Button>Min verktygslåda</Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeInAndPanDown>
+          </div>
 
-        <div className="margin-top-4"></div>
-
-        <div>
-          <h2>Arbetslivserfarenhet</h2>
-
-          <Timeline>
-
-          <TimelineItem heading="Egenföretagare" subheading="2016">
-            Drev egen firma fr.o.m. sena 2015 under mitt egna namn, hösten 2016 grundade jag (ej ensam) ett aktiebolag med namnet <span className="text-muted" title="Detta är ännu inte en länk.">NC NetCommando AB</span>, som gick i konkurs ett år senare (september, 2017).
-
-            <p>
-              För mig blev det tydligt väldigt fort att jag inte var "business"-begåvad, utan jag är tekniskt inriktad.
-            </p>
-          </TimelineItem>
-
-          <TimelineItem heading="Webbansvarig/-utvecklare, ProPublic AB" subheading="2013">
-            Drev webbutveckling och -drift åt denna konsultfirma som startade sin verksamhet vid årsskiftet 2013-2014. Här hade jag möjlighet att under flexibla omständigheter utveckla mina komptenser inom området.
-          </TimelineItem>
-
-          </Timeline>
+          <PageSeparator from="rgb(15, 15, 25)" to="rgb(235, 235, 245)" />
         </div>
 
-        <div>
-          <h2>Utbildning</h2>
+        <div className="content-container-light bg-transparent">
+          <div className="content">
+            <FadeIn delay={500} duration={750}>
+              <div className="timeline-group">
+                <h2 className="timeline-group-title">Arbetslivserfarenhet</h2>
 
-          <Timeline>
-            <TimelineItem heading="Vuxenutbildningscentrum, Västerås" subheading="2015">
-              Distansstudier i Skövde gick åt helvete (märker du ett mönster), flyttade hem till Västerås, försökte med distansstudier.
-            </TimelineItem>
+                <Timeline>
+                  {PageData.work.map((item, index) => (
+                    <TimelineItem
+                      heading={item.title || "Title"}
+                      subheading={item.subtitle || "Subtitle"}
+                      tagline={item.dateline || "Dateline"}
+                      footer={item.footer || []}
+                    >
+                      {this.getResumeItemContent(item)}
+                    </TimelineItem>
+                  ))}
+                </Timeline>
+              </div>
 
-            <TimelineItem heading="Vuxenutbildningscentrum, Skövde" subheading="2014">
-              Skolan gick åt helvete, försökte studera på distans.
-          </TimelineItem>
+              <div className="timeline-group">
+                <h2 className="timeline-group-title">Utbildning</h2>
 
-            <TimelineItem heading="IT-gymnasiet, Skövde" subheading="2014">
-              Datakunskaplig inriktning, webbutveckling och datorkunskap (forts.)
-          </TimelineItem>
+                <Timeline>
+                  {PageData.education.map((item, index) => (
+                    <TimelineItem
+                      heading={item.title || "Title"}
+                      subheading={item.subtitle || "Subtitle"}
+                      tagline={item.dateline || "Dateline"}
+                      footer={item.footer || []}
+                    >
+                      {this.getResumeItemContent(item)}
+                    </TimelineItem>
+                  ))}
+                </Timeline>
+              </div>
+            </FadeIn>
 
-            <TimelineItem heading="Grillska gymnasium, Västerås" subheading="2013">
-              Datakunskaplig inriktning, webbutveckling och datorkunskap.
-          </TimelineItem>
-          </Timeline>
+            <p />
+          </div>
         </div>
-
-        <p></p>
-
       </div>
     );
   }

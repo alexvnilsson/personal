@@ -1,0 +1,47 @@
+﻿$progressbar-border-radius: 30px;
+
+.progress-linear {
+  display: flex;
+  height: 8px;
+
+  padding: 0;
+  background-color: rgb(240, 240, 240);
+
+  border-radius: $progressbar-border-radius;
+
+  overflow: hidden;
+
+  .progress {
+    display: flex;
+
+    max-height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    flex-direction: row;
+    align-items: stretch;
+
+    border-radius: $progressbar-border-radius;
+  }
+}
+
+.progress-radial {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease-in;
+
+  .background {
+    opacity: 0.3;
+  }
+
+  &.no-progress .progress {
+    opacity: 0;
+  }
+  .progress {
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: all 0.6s cubic-bezier(0.58, 0.16, 0.5, 1.14);
+    transition-delay: 0.3s;
+  }
+}

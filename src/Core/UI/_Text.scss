@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
 
 $core-text__font-family: Roboto;
 
@@ -12,18 +12,13 @@ $_font-apply-elements: (
   h6,
   p,
   em,
-  a
-  input,
+  a input,
   button,
   checkbox,
   radio
 );
 
-$text-alignments: (
-  left,
-  center,
-  right
-);
+$text-alignments: (left, center, right);
 
 .text {
   @each $alignment in $text-alignments {
@@ -57,6 +52,10 @@ $text-alignments: (
   }
 
   &-weight {
+    &-normal {
+      font-weight: 400;
+    }
+
     &-light {
       font-weight: 300;
     }
@@ -69,6 +68,23 @@ $text-alignments: (
   &-line-spacing {
     &-expand {
       line-height: 1.5em;
+    }
+  }
+
+  &-upper-heading {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &-readable {
+    &-2x {
+      line-height: 22px;
+    }
+  }
+
+  &-shadow {
+    &-minimal {
+      text-shadow: 1px 1px 3px #252525;
     }
   }
 }

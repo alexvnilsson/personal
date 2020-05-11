@@ -1,0 +1,164 @@
+$icons-grid-rows: 10;
+$icons-grid-cols: 10;
+$icons-grid-size: 70px;
+
+$icons-sprite-default-width: ($icons-grid-size * $icons-grid-rows);
+$icons-sprite-default-height: ($icons-grid-size * $icons-grid-cols);
+
+$icons-size-map: (
+  "smallest": 0.25,
+  "smaller": 0.5,
+  "small": 0.75,
+  "regular": 1,
+  "big": 1.25,
+  "bigger": 1.5,
+  "biggest": 1.75
+);
+
+$icons-map: (
+  "angular": (
+    "x": 0px,
+    "y": 0px
+  ),
+  "react": (
+    "x": -70px,
+    "y": 0px
+  ),
+  "vuejs": (
+    "x": -140px,
+    "y": 0px
+  ),
+  "nodejs": (
+    "x": 0px,
+    "y": -70px,
+    "rows": 0.666,
+    "cols": 2
+  ),
+  "sailsjs": (
+    "x": -140px,
+    "y": -70px
+  ),
+  "expressjs": (
+    "x": -210px,
+    "y": -70px
+  ),
+  "microsoft-net": (
+    "x": 0px,
+    "y": -116.666px,
+    "rows": 0.333,
+    "cols": 2
+  ),
+  "netcore": (
+    "x": -280px,
+    "y": -70px
+  ),
+  "netframework": (
+    "x": -350px,
+    "y": -70px
+  ),
+  "sqlserver": (
+    "x": 0px,
+    "y": -140px
+  ),
+  "mongodb": (
+    "x": -70px,
+    "y": -140px
+  ),
+  "mysql": (
+    "x": -140px,
+    "y": -140px
+  )
+);
+
+/**
+  Summary.
+
+  @param {number} sizeFactor Current icon size-scale.
+  @param {number} x Position on X-axis in the original size.
+  @param {number} y Position on Y-axis in the original size.
+  @params {number} rows Number of rows the icon takes up on the set.
+  @params {number} cols Number of cols the icon takes up on the set.
+*/
+@mixin icon-viewport(
+  $sizeFactor: 1,
+  $x: 0px,
+  $y: 0px,
+  $rows: null,
+  $cols: null
+) {
+  background-position: ($x * $sizeFactor) ($y * $sizeFactor);
+  @if $cols != null {
+    width: (($icons-grid-size * $cols) * $sizeFactor);
+  } @else {
+    width: ($icons-grid-size * $sizeFactor);
+  }
+
+  @if $rows != null {
+    height: (($icons-grid-size * $rows) * $sizeFactor);
+  } @else {
+    height: ($icons-grid-size * $sizeFactor);
+  }
+}
+
+/**
+  Image sprite.
+**/
+@mixin bootstrap-sprite() {
+  background-image: url("Core/Assets/Icons.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+/**
+  Generate icon parent (defining the sets scaling).
+**/
+@mixin generate-icon-parent($sizeName: null, $sizeFactor: 1) {
+  .icon {
+    @if $sizeName != null and $sizeFactor != 1 {
+      &-#{$sizeName} {
+        @include bootstrap-sprite();
+        background-size: ($sizeFactor * $icons-sprite-default-width)
+          ($sizeFactor * $icons-sprite-default-height);
+
+        @include generate-icon-set($sizeName, $sizeFactor);
+      }
+    } @else {
+      @include bootstrap-sprite();
+      @include generate-icon-set();
+    }
+  }
+}
+
+/**
+  Generate the icons.
+**/
+@mixin generate-icon-set($sizeName: null, $sizeFactor: 1) {
+  &.icon {
+    @each $iconName, $iconProps in $icons-map {
+      &-#{$iconName} {
+        @if not
+          map-has-key($iconProps, "x") and not
+          map-has-key($iconProps, "y")
+        {
+          @warn "Icon of name \"${$iconName}\" is either not accessible, or has not defined props as per default.";
+        }
+
+        @include icon-viewport(
+          $sizeFactor,
+          map-get($iconProps, "x"),
+          map-get($iconProps, "y"),
+          map-get($iconProps, "rows"),
+          map-get($iconProps, "cols")
+        );
+      }
+    }
+  }
+}
+
+// Generate default icon set without scale-modifier.
+@include generate-icon-parent();
+
+// Generate sets of different size names.
+@each $sizeName, $sizeFactor in map-remove($icons-size-map, "regular") {
+  @include generate-icon-parent($sizeName, $sizeFactor);
+}

@@ -1,2 +1,14 @@
-$app--background-color: rgb(25, 25, 25);
-$app--color: rgb(245, 245, 245);
+///
+/// Bootstrap v4.3 config
+///
+$enable-responsive-font-sizes: true;
+
+///
+/// Project config
+///
+
+$app--background-color: rgb(15, 15, 25);
+$app--color: rgb(235, 235, 235);
+
+$app--background-color--light: rgb(235, 235, 245);
+$app--color--light: rgb(5, 5, 5);
