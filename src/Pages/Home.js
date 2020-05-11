@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { store, actions } from "Core/UI/Store";
 
-import Resume from "../../data/resume.json";
+import PageData from "./Home.json";
 
 import {
   Timeline,
@@ -96,7 +96,7 @@ export default class Home extends Component {
                 <h2 className="timeline-group-title">Arbetslivserfarenhet</h2>
 
                 <Timeline>
-                  {Resume.work.map((item, index) => (
+                  {PageData.work.map((item, index) => (
                     <TimelineItem
                       heading={item.title || "Title"}
                       subheading={item.subtitle || "Subtitle"}
@@ -113,7 +113,7 @@ export default class Home extends Component {
                 <h2 className="timeline-group-title">Utbildning</h2>
 
                 <Timeline>
-                  {Resume.education.map((item, index) => (
+                  {PageData.education.map((item, index) => (
                     <TimelineItem
                       heading={item.title || "Title"}
                       subheading={item.subtitle || "Subtitle"}
