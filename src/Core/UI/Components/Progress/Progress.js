@@ -13,7 +13,7 @@ export class ProgressLinear extends React.Component {
     );
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (
       typeof this.props === "undefined" ||
       typeof this.props.value === "undefined"
@@ -38,7 +38,7 @@ export class ProgressLinear extends React.Component {
       <div
         className="progress-linear"
         style={{
-          backgroundColor: this.colorRange(bgColor).alpha(0.25)
+          backgroundColor: this.colorRange(bgColor).alpha(0.25),
         }}
       >
         <div
@@ -47,7 +47,7 @@ export class ProgressLinear extends React.Component {
           style={{
             width: this.props.value + "%",
             backgroundColor: this.colorRange(this.value),
-            background: progressStyleBackground
+            background: progressStyleBackground,
           }}
           aria-valuenow={this.props.percent}
           area-valuemin="0"
@@ -64,7 +64,7 @@ export class ProgressRadial extends React.Component {
     strokeWidth: 10,
     dimension: 90,
     color: "#327dc8",
-    value: 33
+    value: 33,
   };
 
   constructor(props) {
@@ -96,7 +96,7 @@ export class ProgressRadial extends React.Component {
     return (
       <div
         className={classNames("progress-radial", className, {
-          "no-progress": strokeLength === 0
+          "no-progress": strokeLength === 0,
         })}
       >
         <svg
