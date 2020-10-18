@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -32,8 +33,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  --font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 *,
 *::before,
@@ -51,7 +52,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -149,7 +150,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em; }
 
 pre {
@@ -4294,7 +4295,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4379,7 +4380,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6941,7 +6942,7 @@ button.bg-dark:focus {
     margin-left: auto !important; } }
 
 .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
 
 .text-justify {
   text-align: justify !important; }
@@ -7613,7 +7614,7 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 0.75rem 0 0 0;
   background-color: #fefefe;
   box-shadow: #858585 0px 0px 3px 0px, #a4a4a4 0px 0px 9px 0px;
-  border-radius: 30px;
+  border-radius: 0.25em;
   overflow: hidden; }
   .deck.deck-padding {
     margin-top: 1em;
@@ -7869,9 +7870,6 @@ a.text-dark:hover, a.text-dark:focus {
 .text-shadow-minimal {
   text-shadow: 1px 1px 3px #252525; }
 
-body, h1, h2, h3, h4, h5, h6, p, em, a input, button, checkbox, radio {
-  font-family: Roboto; }
-
 h1,
 h2,
 h3 {
@@ -7907,6 +7905,118 @@ h3 {
     transition: all 0.6s cubic-bezier(0.58, 0.16, 0.5, 1.14);
     transition-delay: 0.3s; }
 
+.app-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1em 0; }
+  .app-header .header-brand {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center; }
+    .app-header .header-brand .brand-logo-image {
+      width: 4em;
+      height: auto; }
+    .app-header .header-brand .brand-name {
+      display: flex;
+      margin: 0 0 0 1em;
+      font-size: 1.75em;
+      font-weight: 400;
+      color: #333333;
+      text-transform: uppercase;
+      transition: color 150ms ease-in; }
+    .app-header .header-brand:hover, .app-header .header-brand:focus {
+      text-decoration: none; }
+      .app-header .header-brand:hover > .brand-name, .app-header .header-brand:focus > .brand-name {
+        color: #1a1a1a;
+        text-decoration: none; }
+  .app-header .header-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    .app-header .header-nav:not(.nav-right) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center; }
+    .app-header .header-nav.nav-right {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-items: center; }
+    .app-header .header-nav li.nav-item {
+      display: flex;
+      margin: 0; }
+      .app-header .header-nav li.nav-item:not(:last-child) {
+        margin-right: 2em; }
+      .app-header .header-nav li.nav-item:hover > a, .app-header .header-nav li.nav-item:focus > a {
+        color: #0d0d0d; }
+      .app-header .header-nav li.nav-item a {
+        display: inline-block;
+        font-size: 1.1em;
+        font-weight: 500;
+        color: #4d4d4d;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 150ms ease-in; }
+        .app-header .header-nav li.nav-item a .nav-icon {
+          transition: fill 0.5s ease-in-out; }
+          .app-header .header-nav li.nav-item a .nav-icon.dark {
+            fill: #ebebeb; }
+          .app-header .header-nav li.nav-item a .nav-icon.light {
+            fill: #050505; }
+  .app-header .app-header .nav-menu.site-nav li.nav-item:not(:last-item) {
+    margin-right: 2em; }
+  .app-header .app-header .nav-menu.site-nav li.nav-item:hover > a, .app-header .app-header .nav-menu.site-nav li.nav-item:focus > a {
+    color: #1a1a1a; }
+  .app-header .app-header .nav-menu.site-nav li.nav-item a {
+    font-weight: 500;
+    font-size: 1em;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    transition: color 150ms ease-in; }
+
+.app-footer {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-top: 1px #e6e6e6 solid;
+  font-size: 0.8em; }
+  .app-footer .footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 1 auto; }
+    .app-footer .footer-wrapper ul.nav-footer {
+      flex-direction: row;
+      flex-wrap: nowrap; }
+      .app-footer .footer-wrapper ul.nav-footer li.nav-item {
+        margin: 0;
+        padding: 0; }
+        .app-footer .footer-wrapper ul.nav-footer li.nav-item:not(:last-child) {
+          margin-right: 1.25em; }
+        .app-footer .footer-wrapper ul.nav-footer li.nav-item a.nav-link {
+          margin: 0;
+          padding: 0; }
+          .app-footer .footer-wrapper ul.nav-footer li.nav-item a.nav-link.link-icon {
+            opacity: 0.75;
+            transition: opacity 150ms ease-in; }
+        .app-footer .footer-wrapper ul.nav-footer li.nav-item:hover > a.nav-link.link-icon, .app-footer .footer-wrapper ul.nav-footer li.nav-item:focus > a.nav-link.link-icon {
+          opacity: 1; }
+
 .button {
   display: inline-block;
   background-color: #194bc8;
@@ -7941,19 +8051,14 @@ h3 {
   .button:not(.small) {
     padding: 0.66rem 1.25rem; } }
 
-html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Roboto;
-  font-weight: 400;
   font-size: 15px;
   cursor: default;
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out; }
-  html.dark,
   body.dark {
     background-color: #0f0f19; }
-  html.light,
   body.light {
     background-color: #ebebf5; }
 
@@ -7992,8 +8097,9 @@ body {
     overflow: hidden; }
   .content {
     margin: auto;
-    max-width: 960px;
-    padding: 0 2rem; } }
+    max-width: 1080px; }
+    .content:not(.no-padding) {
+      padding: 0 2rem; } }
 
 @media (max-width: 1020px) {
   .app-header-container {
@@ -8027,55 +8133,16 @@ body {
       color: #050505; }
     .app-header-container.light .app-header .nav-icon {
       fill: #0a0a0a; }
-  .app-header-container .app-header {
+
+.app-footer-container {
+  margin-top: 2.5em; }
+  .app-footer-container .app-footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 1.5rem 0; }
-    .app-header-container .app-header .header-brand {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: center;
-      justify-content: space-between;
-      align-items: center; }
-      .app-header-container .app-header .header-brand .brand-logo {
-        width: auto;
-        height: 92px; }
-      .app-header-container .app-header .header-brand .brand-name {
-        display: none;
-        margin: 1rem 0 0 0;
-        font-size: 1.25rem;
-        font-weight: 300; }
-    .app-header-container .app-header ul.header-right-nav {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-      list-style-type: none; }
-      .app-header-container .app-header ul.header-right-nav li.nav-item {
-        display: inline-block;
-        margin: 0;
-        line-height: 1em; }
-        .app-header-container .app-header ul.header-right-nav li.nav-item:not(:last-child) {
-          margin-right: 0.25rem; }
-        .app-header-container .app-header ul.header-right-nav li.nav-item a.nav-link {
-          display: inline-block;
-          font-size: 0.75em;
-          font-weight: 500;
-          color: #e1e1e1;
-          text-decoration: none; }
-          .app-header-container .app-header ul.header-right-nav li.nav-item a.nav-link .nav-icon {
-            transition: fill 0.5s ease-in-out; }
-            .app-header-container .app-header ul.header-right-nav li.nav-item a.nav-link .nav-icon.dark {
-              fill: #ebebeb; }
-            .app-header-container .app-header ul.header-right-nav li.nav-item a.nav-link .nav-icon.light {
-              fill: #050505; }
+    padding: 0; }
 
 .content {
   position: relative; }

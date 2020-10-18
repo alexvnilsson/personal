@@ -7,6 +7,7 @@ import { store } from "Core/UI/Store";
 import RestoreScroll from "Core/UI/RestoreScroll";
 
 import AppHeader from "Core/UI/AppHeader";
+import AppFooter from "Core/UI/AppFooter";
 
 import Home from "Pages/Home";
 import Portfolio from "Pages/Portfolio";
@@ -20,29 +21,27 @@ export default class App extends Component {
 
     this.colorTheme = {
       body: "",
-      header: ""
+      header: "",
     };
   }
 
   componentWillMount() {
-    this.uiStoreListener = store.subscribe(() => {
-      const state = store.getState();
-
-      if (
-        this.colorTheme.body !== state.colorTheme.body ||
-        !this.colorTheme ||
-        !state.colorTheme
-      ) {
-        if (typeof state.colorTheme.body !== "undefined") {
-          document.body.classList.add(state.colorTheme.body);
-
-          if (this.colorTheme.body.length > 0) {
-            document.body.classList.remove(this.colorTheme.body);
-          }
-        }
-        this.colorTheme = state.colorTheme;
-      }
-    });
+    // this.uiStoreListener = store.subscribe(() => {
+    //   const state = store.getState();
+    //   if (
+    //     this.colorTheme.body !== state.colorTheme.body ||
+    //     !this.colorTheme ||
+    //     !state.colorTheme
+    //   ) {
+    //     if (typeof state.colorTheme.body !== "undefined") {
+    //       document.body.classList.add(state.colorTheme.body);
+    //       if (this.colorTheme.body.length > 0) {
+    //         document.body.classList.remove(this.colorTheme.body);
+    //       }
+    //     }
+    //     this.colorTheme = state.colorTheme;
+    //   }
+    // });
   }
 
   componentWillUnmount() {
@@ -61,6 +60,8 @@ export default class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/toolbox" component={Toolbox} />
+
+            <AppFooter />
           </RestoreScroll>
         </Router>
       </Provider>
