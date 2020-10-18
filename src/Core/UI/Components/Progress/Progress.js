@@ -13,7 +13,7 @@ export class ProgressLinear extends React.Component {
     );
   }
 
-  componentDidMount() {
+  getValueFromProps() {
     if (
       typeof this.props === "undefined" ||
       typeof this.props.value === "undefined"
@@ -26,6 +26,7 @@ export class ProgressLinear extends React.Component {
   }
 
   render() {
+    this.getValueFromProps();
     const bgColor = this.colorRange(this.value).desaturate(1);
 
     const progressStyleBackground = `linear-gradient(90deg, ${this.colorRange(
