@@ -5,7 +5,7 @@ import PageData from "./Home.json";
 
 import {
   Timeline,
-  TimelineItem
+  TimelineItem,
 } from "Core/UI/Components/Itemization/Timeline";
 
 import Button from "Core/UI/Components/Button";
@@ -15,7 +15,9 @@ import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 export default class Home extends Component {
   getResumeItemContent(item) {
     if (typeof item.body !== "undefined" && Array.isArray(item.body)) {
-      return item.body.map(subitem => React.createElement("p", null, subitem));
+      return item.body.map((subitem) =>
+        React.createElement("p", null, subitem)
+      );
     } else if (typeof item.body === "string") {
       return item.body;
     }
@@ -23,7 +25,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="page page-home">
+      <div className="container">
         <div className="content-container">
           <div className="pre-content">
             <h1 className="font-weight-normal">Alexander Nilsson</h1>
@@ -41,17 +43,15 @@ export default class Home extends Component {
                         marginLeft: "1em",
                         maxWidth: "66vw",
                         maxHeight: "177px",
-                        opacity: 0.75
+                        opacity: 0.75,
                       }}
                     />
                   </FadeInAndPanDown>
                 </div>
 
                 <div className="col-md-9 align-self-center">
-                  <div className="container text-shadow-minimal">
-                    <h2 className="font-weight-light text-upper-heading">
-                      Hela stacken
-                    </h2>
+                  <div className="container">
+                    <h2 className="text-upper-heading">Hela stacken</h2>
 
                     <p className="text-readable-2x">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -83,6 +83,7 @@ export default class Home extends Component {
                 <Timeline>
                   {PageData.work.map((item, index) => (
                     <TimelineItem
+                      key={index}
                       heading={item.title || "Title"}
                       subheading={item.subtitle || "Subtitle"}
                       tagline={item.dateline || "Dateline"}
@@ -100,6 +101,7 @@ export default class Home extends Component {
                 <Timeline>
                   {PageData.education.map((item, index) => (
                     <TimelineItem
+                      key={index}
                       heading={item.title || "Title"}
                       subheading={item.subtitle || "Subtitle"}
                       tagline={item.dateline || "Dateline"}
