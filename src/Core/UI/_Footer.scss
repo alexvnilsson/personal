@@ -1,0 +1,50 @@
+$app-footer-container-padding-y: 1em;
+
+.app-footer {
+  padding-top: $app-footer-container-padding-y;
+  padding-bottom: $app-footer-container-padding-y;
+
+  border-top: 1px rgb(230, 230, 230) solid;
+
+  font-size: 0.8em;
+
+  .footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 1 auto;
+
+    ul.nav-footer {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      li.nav-item {
+        margin: 0;
+        padding: 0;
+
+        &:not(:last-child) {
+          margin-right: 1.25em;
+        }
+
+        a.nav-link {
+          margin: 0;
+          padding: 0;
+
+          &.link-icon {
+            opacity: 0.75;
+
+            transition: opacity 150ms ease-in;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          & > a.nav-link {
+            &.link-icon {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

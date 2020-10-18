@@ -1,0 +1,129 @@
+$header-brand-link-color: hsl(0, 0%, 20%);
+$header-nav-link-color: hsl(0, 0%, 30%);
+
+.app-header {
+  @include flex-container(row, space-between, flex-start);
+  padding: 1em 0;
+
+  .header-brand {
+    @include flex-container(row, flex-start, center);
+
+    .brand-logo-image {
+      width: 4em;
+      height: auto;
+    }
+
+    .brand-name {
+      display: flex;
+
+      margin: 0 0 0 1em;
+
+      font-size: 1.75em;
+      font-weight: 400;
+
+      color: $header-brand-link-color;
+      text-transform: uppercase;
+
+      transition: color 150ms ease-in;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+
+      & > .brand-name {
+        color: darken($header-brand-link-color, 10%);
+        text-decoration: none;
+      }
+    }
+  }
+
+  // Nav
+  .header-nav {
+    @include flex-container(row, space-between, center);
+    align-self: center;
+    flex: 1;
+
+    &:not(.nav-right) {
+      @include flex-container(row, flex-start, center, nowrap);
+    }
+    &.nav-right {
+      @include flex-container(row, flex-end, center, nowrap);
+    }
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li.nav-item {
+      display: flex;
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-right: 2em;
+      }
+
+      &:hover,
+      &:focus {
+        & > a {
+          color: darken($header-nav-link-color, 25%);
+        }
+      }
+
+      a {
+        display: inline-block;
+
+        font-size: 1.1em;
+        font-weight: 500;
+
+        color: $header-nav-link-color;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        transition: color 150ms ease-in;
+
+        .nav-icon {
+          transition: fill 0.5s ease-in-out;
+
+          &.dark {
+            fill: $app--color;
+          }
+
+          &.light {
+            fill: $app--color--light;
+          }
+        }
+      }
+    }
+  }
+
+  $app-header-nav-link-color: hsl(0, 0%, 30%);
+
+  .app-header {
+    .nav-menu.site-nav {
+      li.nav-item {
+        &:not(:last-item) {
+          margin-right: 2em;
+        }
+
+        &:hover,
+        &:focus {
+          & > a {
+            color: darken($app-header-nav-link-color, 20%);
+          }
+        }
+
+        a {
+          font-weight: 500;
+          font-size: 1em;
+
+          color: $app-header-nav-link-color;
+          text-transform: uppercase;
+          letter-spacing: 0.16em;
+
+          transition: color 150ms ease-in;
+        }
+      }
+    }
+  }
+}
