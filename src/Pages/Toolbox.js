@@ -18,15 +18,15 @@ export default class Toolbox extends Component {
 
   render() {
     return (
-      <div className="page page-toolbox">
+      <div className="page">
         <FadeIn delay={100} duration={1000}>
           <div
-            className="content-container-light"
+            className="container"
             style={{
               backgroundImage: "url(assets/parts/layers.png)",
               backgroundPosition: "85% top",
               backgroundRepeat: "no-repeat",
-              backgroundSize: "288px"
+              backgroundSize: "288px",
             }}
           >
             <div className="pre-content mb-4">
