@@ -12,15 +12,14 @@
 @import "Core/UI/Progress";
 @import "Core/UI/ListItem";
 
+@import "Core/UI/Header";
+@import "Core/UI/Footer";
 @import "Core/UI/Actions";
 
-html,
 body {
   margin: 0;
   padding: 0;
 
-  font-family: Roboto;
-  font-weight: 400;
   font-size: 15px;
 
   cursor: default;
@@ -90,8 +89,10 @@ body {
 
   .content {
     margin: auto;
-    max-width: 960px;
-    padding: 0 2rem;
+    max-width: 1080px;
+    &:not(.no-padding) {
+      padding: 0 2rem;
+    }
   }
 }
 
@@ -164,71 +165,14 @@ body {
       }
     }
   }
+}
 
-  .app-header {
+.app-footer-container {
+  margin-top: 2.5em;
+
+  .app-footer {
     @include flex-container(row, space-between, flex-start);
-    padding: 1.5rem 0;
-
-    .header-brand {
-      @include flex-container(column, space-between, center, center);
-      //padding-top: 1rem;
-
-      .brand-logo {
-        width: auto;
-        height: 92px;
-      }
-
-      .brand-name {
-        display: none;
-
-        margin: 1rem 0 0 0;
-
-        font-size: 1.25rem;
-        font-weight: 300;
-      }
-    }
-
-    ul.header-right-nav {
-      flex: 1;
-
-      @include flex-container(row, flex-end, center, nowrap);
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-
-      li.nav-item {
-        display: inline-block;
-        margin: 0;
-
-        &:not(:last-child) {
-          margin-right: 0.25rem;
-        }
-
-        line-height: 1em;
-
-        a.nav-link {
-          display: inline-block;
-
-          font-size: 0.75em;
-          font-weight: 500;
-
-          color: rgb(225, 225, 225);
-          text-decoration: none;
-
-          .nav-icon {
-            transition: fill 0.5s ease-in-out;
-
-            &.dark {
-              fill: $app--color;
-            }
-
-            &.light {
-              fill: $app--color--light;
-            }
-          }
-        }
-      }
-    }
+    padding: 0;
   }
 }
 
