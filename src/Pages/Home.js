@@ -1,8 +1,6 @@
 ﻿import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import { store, actions } from "Core/UI/Store";
-
 import PageData from "./Home.json";
 
 import {
@@ -12,19 +10,9 @@ import {
 
 import Button from "Core/UI/Components/Button";
 
-import { PageSeparator } from "Core/UI/Components/Separators";
 import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 
 export default class Home extends Component {
-  componentWillMount() {
-    store.dispatch(
-      actions.setColorTheme({
-        body: "light",
-        header: "dark"
-      })
-    );
-  }
-
   getResumeItemContent(item) {
     if (typeof item.body !== "undefined" && Array.isArray(item.body)) {
       return item.body.map(subitem => React.createElement("p", null, subitem));
@@ -36,10 +24,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="page page-home">
-        <div className="content-container-dark">
+        <div className="content-container">
           <div className="pre-content">
             <h1 className="font-weight-normal">Alexander Nilsson</h1>
-            <h3>Webbutveckling, projektplanering?, med mera.</h3>
           </div>
 
           <div className="content">
@@ -85,8 +72,6 @@ export default class Home extends Component {
               </div>
             </FadeInAndPanDown>
           </div>
-
-          <PageSeparator from="rgb(15, 15, 25)" to="rgb(235, 235, 245)" />
         </div>
 
         <div className="content-container-light bg-transparent">
