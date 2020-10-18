@@ -25,25 +25,6 @@ export default class App extends Component {
     };
   }
 
-  componentWillMount() {
-    // this.uiStoreListener = store.subscribe(() => {
-    //   const state = store.getState();
-    //   if (
-    //     this.colorTheme.body !== state.colorTheme.body ||
-    //     !this.colorTheme ||
-    //     !state.colorTheme
-    //   ) {
-    //     if (typeof state.colorTheme.body !== "undefined") {
-    //       document.body.classList.add(state.colorTheme.body);
-    //       if (this.colorTheme.body.length > 0) {
-    //         document.body.classList.remove(this.colorTheme.body);
-    //       }
-    //     }
-    //     this.colorTheme = state.colorTheme;
-    //   }
-    // });
-  }
-
   componentWillUnmount() {
     if (typeof this.uiStoreListener !== "undefined") {
       this.uiStoreListener();
