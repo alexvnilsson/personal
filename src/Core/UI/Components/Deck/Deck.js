@@ -17,30 +17,20 @@ export default class Deck extends React.Component {
       backgroundColor: bgColor,
       color: color,
       boxShadow: [
-        Css.boxShadow(
-          Chroma(bgColor)
-            .darker(1.75)
-            .alpha(0.75),
-          0,
-          0,
-          3,
-          0
-        ),
-        Css.boxShadow(
-          Chroma(bgColor)
-            .darker(1.25)
-            .alpha(0.25),
-          0,
-          0,
-          9,
-          0
-        )
-      ].join(", ")
+        Css.boxShadow(Chroma(bgColor).darker(1.75).alpha(0.75), 0, 0, 3, 0),
+        Css.boxShadow(Chroma(bgColor).darker(1.25).alpha(0.25), 0, 0, 9, 0),
+      ].join(", "),
     };
 
     return (
       <div
-        className={classNames("deck", isPadded ? "deck-padding" : "")}
+        className={classNames(
+          "deck",
+          isPadded ? "deck-padding" : "",
+          ...(Array.isArray(this.props.className)
+            ? this.props.className
+            : [this.props.className])
+        )}
         style={deckStyle}
       >
         {this.props.children}
