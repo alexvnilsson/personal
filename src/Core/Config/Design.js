@@ -1,9 +1,7 @@
 export default {
   Header: {
     Logo: {
-      Image: {
-        Dimensions: "77",
-      },
+      Dimensions: 36,
     },
   },
   Footer: {
