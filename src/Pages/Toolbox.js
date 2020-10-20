@@ -7,7 +7,73 @@ import ListItem from "Core/UI/Components/ListItem";
 import { TransitionGroup } from "react-transition-group";
 import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 
-import { SpaceSeparator } from "Core/UI/Components/Separators";
+import classNames from "classnames";
+
+export class ToolboxItem extends Component {
+  render() {
+    if (
+      typeof this.props.title !== "undefined" &&
+      typeof this.props.icon !== "undefined"
+    ) {
+      const itemIconClasses = ["title-icon", "icon-smallest"];
+      let itemIconElement = undefined;
+
+      if (typeof this.props["icons-spaced"] !== "undefined") {
+        itemIconClasses.push("mx-1");
+      }
+
+      if (Array.isArray(this.props.icon)) {
+        itemIconElement = (
+          <div className="mr-2">
+            {this.props.icon.map((icon, index) => (
+              <i
+                key={index}
+                className={classNames(...itemIconClasses, `icon-${icon}`)}
+              />
+            ))}
+          </div>
+        );
+      } else {
+        itemIconElement = (
+          <div className="mr-2">
+            <i
+              className={classNames(
+                ...itemIconClasses,
+                `icon-${this.props.icon}`
+              )}
+            />
+          </div>
+        );
+      }
+
+      return (
+        <div className="listitem">
+          <div className="title">
+            <div className="title-wrapper">
+              {itemIconElement}
+              <h5 className="title-text">{this.props.title}</h5>
+            </div>
+          </div>
+
+          <div className="body">{this.props.children}</div>
+        </div>
+      );
+    } else if (
+      typeof this.props.title !== "undefined" &&
+      typeof this.props.icon === "undefined"
+    ) {
+      return (
+        <div className="listitem">
+          <div className="title">
+            <p className="title-text">{this.props.title}</p>
+          </div>
+
+          <div className="body">{this.props.children}</div>
+        </div>
+      );
+    }
+  }
+}
 
 export default class Toolbox extends Component {
   render() {
@@ -30,117 +96,106 @@ export default class Toolbox extends Component {
               </h6>
             </div>
 
-            <TransitionGroup className="container">
-              <FadeInAndPanDown delay={200} duration={500}>
-                <Deck pad bgColor="#324b96" color="#f5f5f5">
-                  <DeckTitle>Datalogik</DeckTitle>
+            <div className="py-4">
+              <TransitionGroup className="container">
+                <FadeInAndPanDown delay={50} duration={500}>
+                  <Deck className="mb-5">
+                    <DeckTitle>Datalogik</DeckTitle>
 
-                  <DeckBody>
-                    <DeckGroup>
-                      <ListItem title="MySQL" icon="mysql">
-                        <Progress type="linear" value="80" />
+                    <DeckBody>
+                      <DeckGroup>
+                        <ToolboxItem
+                          title="Relationsdatabaser"
+                          icon={["mysql"]}
+                        >
+                          <Progress type="linear" value="80" />
 
-                        <p className="description">
-                          Erfarenhet av (Query SQL)?, MySQL Workbench
-                        </p>
-                      </ListItem>
+                          <p className="description">
+                            Erfarenhet av (Query SQL)?, MySQL Workbench
+                          </p>
+                        </ToolboxItem>
+                      </DeckGroup>
+                    </DeckBody>
+                  </Deck>
+                </FadeInAndPanDown>
 
-                      <ListItem title="SQL Server" icon="sqlserver">
-                        <Progress type="linear" value={50} />
+                <FadeInAndPanDown delay={300} duration={500}>
+                  <Deck className="mb-5">
+                    <DeckTitle>Affärslogik</DeckTitle>
 
-                        <p className="description">
-                          Erfarenhet av Transact-SQL, Migrations med EF
-                          <sup>1</sup> Core och EF 6+
-                          <br />
-                          <br />
-                          <sup>1</sup> <small>Entity Framework</small>
-                        </p>
-                      </ListItem>
+                    <DeckBody>
+                      <DeckGroup title="NodeJS">
+                        <ListItem title="ExpressJS" icon="expressjs">
+                          <Progress type="linear" value="75" />
 
-                      <ListItem title="MongoDB" icon="mongodb">
-                        <Progress type="linear" value="40" />
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
 
-                        <p className="description">
-                          Erfarenhet av användning med NodeJS-baserade servrar
-                        </p>
-                      </ListItem>
-                    </DeckGroup>
-                  </DeckBody>
-                </Deck>
-              </FadeInAndPanDown>
+                        <ListItem title="SailsJS" icon="sailsjs">
+                          <Progress type="linear" value="40" />
 
-              <SpaceSeparator />
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
+                      </DeckGroup>
 
-              <FadeInAndPanDown delay={300} duration={500}>
-                <Deck pad bgColor="#32e1c8" color="#2d2d2d">
-                  <DeckTitle>Affärslogik</DeckTitle>
+                      <DeckGroup title="Microsoft">
+                        <ListItem title="ASP.NET Core MVC" icon="netcore">
+                          <Progress type="linear" value="66" />
 
-                  <DeckBody>
-                    <DeckGroup title="NodeJS">
-                      <ListItem title="ExpressJS" icon="expressjs">
-                        <Progress type="linear" value="75" />
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
+                      </DeckGroup>
+                    </DeckBody>
+                  </Deck>
+                </FadeInAndPanDown>
 
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
+                <FadeInAndPanDown delay={400} duration={500}>
+                  <Deck>
+                    <DeckTitle>Presentationslager</DeckTitle>
 
-                      <ListItem title="SailsJS" icon="sailsjs">
-                        <Progress type="linear" value="40" />
+                    <DeckBody>
+                      <DeckGroup title="NodeJS">
+                        <ListItem title="Angular" icon="angular">
+                          <Progress type="linear" value="80" />
 
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
-                    </DeckGroup>
+                          <p className="description">
+                            Utvecklat stor-skaliga affärssystem för ...
+                          </p>
+                        </ListItem>
 
-                    <DeckGroup title="Microsoft">
-                      <ListItem title="ASP.NET Core MVC" icon="netcore">
-                        <Progress type="linear" value="66" />
+                        <ListItem title="React" icon="react">
+                          <Progress type="linear" value="66" />
 
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
-                    </DeckGroup>
-                  </DeckBody>
-                </Deck>
-              </FadeInAndPanDown>
+                          <p className="description" />
+                        </ListItem>
 
-              <SpaceSeparator />
+                        <ListItem title="VueJS" icon="vuejs">
+                          <Progress type="linear" value="75" />
 
-              <FadeInAndPanDown delay={400} duration={500}>
-                <Deck pad bgColor="rgb(255, 200, 50)" color="#2d2d2d">
-                  <DeckTitle>Presentationslager</DeckTitle>
+                          <p className="description" />
+                        </ListItem>
+                      </DeckGroup>
 
-                  <DeckBody>
-                    <DeckGroup title="NodeJS">
-                      <ListItem title="Angular" icon="angular">
-                        <Progress type="linear" value="80" />
+                      <DeckGroup title="Microsoft">
+                        <ListItem title="ASP.NET Core MVC" icon="netcore">
+                          <Progress type="linear" value="66" />
 
-                        <p className="description">
-                          Utvecklat stor-skaliga affärssystem för ...
-                        </p>
-                      </ListItem>
-
-                      <ListItem title="React" icon="react">
-                        <Progress type="linear" value="66" />
-
-                        <p className="description" />
-                      </ListItem>
-
-                      <ListItem title="VueJS" icon="vuejs">
-                        <Progress type="linear" value="75" />
-
-                        <p className="description" />
-                      </ListItem>
-                    </DeckGroup>
-
-                    <DeckGroup title="Microsoft">
-                      <ListItem title="ASP.NET Core MVC" icon="netcore">
-                        <Progress type="linear" value="66" />
-
-                        <p className="description">Beskrivning av teknologin</p>
-                      </ListItem>
-                    </DeckGroup>
-                  </DeckBody>
-                </Deck>
-              </FadeInAndPanDown>
-            </TransitionGroup>
+                          <p className="description">
+                            Beskrivning av teknologin
+                          </p>
+                        </ListItem>
+                      </DeckGroup>
+                    </DeckBody>
+                  </Deck>
+                </FadeInAndPanDown>
+              </TransitionGroup>
+            </div>
           </div>
         </FadeIn>
       </div>
