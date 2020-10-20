@@ -1,103 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
-
-$core-text__font-family: "Open Sans";
-
-$_font-apply-elements: (
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  em,
-  a input,
-  button,
-  checkbox,
-  radio
-);
-
-$text-alignments: (left, center, right);
-
-.text {
-  @each $alignment in $text-alignments {
-    &-align-#{$alignment} {
-      text-align: $alignment;
-    }
-  }
-
-  &-dark {
-    & .text-muted {
-      color: lighten(rgb(5, 5, 5), 25%);
-    }
-  }
-
-  &-muted {
-    color: darken($app--color, 10%);
-  }
-
-  &-darken {
-    color: darken($app--color, 25%);
-  }
-
-  &-size {
-    &-smaller {
-      font-size: 0.85em;
-    }
-
-    &-small {
-      font-size: 0.75em;
-    }
-  }
-
-  &-weight {
-    &-normal {
-      font-weight: 400;
-    }
-
-    &-light {
-      font-weight: 300;
-    }
-
-    &-thin {
-      font-weight: 100;
-    }
-  }
-
-  &-line-spacing {
-    &-expand {
-      line-height: 1.5em;
-    }
-  }
-
-  &-upper-heading {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  &-readable {
-    &-2x {
-      line-height: 22px;
-    }
-  }
-
-  &-shadow {
-    &-minimal {
-      text-shadow: 1px 1px 3px #252525;
-    }
-  }
-}
-
-/// Elemental styling
-
-// #{selector-nest($_font-apply-elements)} {
-//   font-family: $core-text__font-family;
-// }
 
 h1,
 h2,
 h3 {
   font-weight: 400;
+}
+
+h4,
+h5 {
+  font-weight: 500;
 }
