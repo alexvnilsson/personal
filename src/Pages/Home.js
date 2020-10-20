@@ -1,7 +1,7 @@
 ﻿import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import PageData from "./Home.json";
+import PageData from "Data/Pages/Home.json";
 
 import {
   Timeline,
@@ -15,8 +15,8 @@ import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 export default class Home extends Component {
   getResumeItemContent(item) {
     if (typeof item.body !== "undefined" && Array.isArray(item.body)) {
-      return item.body.map((subitem) =>
-        React.createElement("p", null, subitem)
+      return item.body.map((subitem, index) =>
+        React.createElement("p", { key: index }, subitem)
       );
     } else if (typeof item.body === "string") {
       return item.body;
