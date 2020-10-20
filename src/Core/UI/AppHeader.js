@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import Config from "Core/Config";
 import { ReactComponent as BrandLogo } from "Assets/Brand/logotype.svg";
@@ -30,7 +30,13 @@ export default class AppHeader extends Component {
         <ul className="header-nav ml-5 site-nav">
           {navItems.map((item, index) => (
             <li key={index} className="nav-item">
-              <Link to={item.href}>{item.label}</Link>
+              <NavLink
+                to={item.href}
+                className="nav-link"
+                activeClassName="active"
+              >
+                {item.label}
+              </NavLink>
             </li>
           ))}
         </ul>

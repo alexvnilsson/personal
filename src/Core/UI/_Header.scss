@@ -1,5 +1,6 @@
 $header-brand-link-color: hsl(0, 0%, 20%);
 $header-nav-link-color: hsl(0, 0%, 30%);
+$header-nav-link-active-color: darken($header-nav-link-color, 75%);
 
 .app-header {
   @include flex-container(row, space-between, flex-start);
@@ -65,12 +66,12 @@ $header-nav-link-color: hsl(0, 0%, 30%);
 
       &:hover,
       &:focus {
-        & > a {
-          color: darken($header-nav-link-color, 25%);
+        & > a.nav-link {
+          color: $header-nav-link-active-color;
         }
       }
 
-      a {
+      a.nav-link {
         display: inline-block;
 
         font-size: 1.1em;
@@ -81,6 +82,10 @@ $header-nav-link-color: hsl(0, 0%, 30%);
         text-transform: uppercase;
 
         transition: color 150ms ease-in;
+
+        &.active {
+          color: $header-nav-link-active-color;
+        }
 
         .nav-icon {
           transition: fill 0.5s ease-in-out;
