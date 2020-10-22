@@ -2,7 +2,6 @@
 import React from "react";
 import Chroma from "chroma-js";
 import invertColor from "invert-color";
-import { Link } from "react-router-dom";
 
 import { gql, useQuery } from "@apollo/client";
 
@@ -10,8 +9,6 @@ import {
   Timeline,
   TimelineItem,
 } from "Core/UI/Components/Itemization/Timeline";
-
-import Button from "Core/UI/Components/Button";
 
 import { FadeIn } from "Core/UI/Transitions";
 
@@ -86,6 +83,7 @@ const Home = () => {
             {data.home?.leader?.cover.image?.url && (
               <img
                 className="image"
+                alt="cover"
                 src={`${config.cms.api.baseUrl}/${data.home?.leader?.cover?.image?.url}`}
                 style={{
                   position: "absolute",
