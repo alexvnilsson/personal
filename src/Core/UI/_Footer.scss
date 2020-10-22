@@ -4,9 +4,11 @@ $app-footer-container-padding-y: 1em;
   padding-top: $app-footer-container-padding-y;
   padding-bottom: $app-footer-container-padding-y;
 
-  border-top: 1px rgb(230, 230, 230) solid;
-
   font-size: 0.8em;
+
+  &.footer-divider {
+    border-top: 1px rgb(230, 230, 230) solid;
+  }
 
   .footer-wrapper {
     display: flex;

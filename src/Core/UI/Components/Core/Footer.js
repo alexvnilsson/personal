@@ -21,9 +21,9 @@ export default class Footer extends Component {
     ];
 
     return (
-      <footer className="app-footer container no-padding">
-        <div className="footer-wrapper">
-          <div className="container px-0">
+      <footer className="container app-footer footer-divider px-0">
+        <div className="container footer-wrapper">
+          <div className="px-0">
             &copy; {new Date().getFullYear()} Alexander V. Nilsson
           </div>
 
