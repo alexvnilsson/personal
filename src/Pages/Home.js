@@ -1,7 +1,7 @@
 ﻿import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import PageData from "Data/Pages/Home.json";
+import ApiService from "../Data/Services/ApiService";
 
 import {
   Timeline,
@@ -13,6 +13,49 @@ import Button from "Core/UI/Components/Button";
 import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
 
 export default class Home extends Component {
+  state = {
+    pendingData: {
+      experiences: true,
+      educations: true,
+    },
+    collections: {
+      experiences: [],
+      educations: [],
+    },
+  };
+
+  componentDidMount() {
+    if (this.state.pendingData.experiences) {
+      ApiService.getExperiences().then((data) =>
+        this.setState({
+          pendingData: {
+            ...this.state.pendingData,
+            experiences: false,
+          },
+          collections: {
+            ...this.state.collections,
+            experiences: [...this.state.collections.experiences, ...data],
+          },
+        })
+      );
+    }
+
+    if (this.state.pendingData.educations) {
+      ApiService.getEducations().then((data) =>
+        this.setState({
+          pendingData: {
+            ...this.state.pendingData,
+            educations: false,
+          },
+          collections: {
+            ...this.state.collections,
+            educations: [...this.state.collections.educations, ...data],
+          },
+        })
+      );
+    }
+  }
+
   getResumeItemContent(item) {
     if (typeof item.body !== "undefined" && Array.isArray(item.body)) {
       return item.body.map((subitem, index) =>
@@ -81,15 +124,17 @@ export default class Home extends Component {
                 <h2 className="timeline-group-title">Arbetslivserfarenhet</h2>
 
                 <Timeline>
-                  {PageData.work.map((item, index) => (
+                  {this.state.collections.experiences.map((item, index) => (
                     <TimelineItem
                       key={index}
-                      heading={item.title || "Title"}
-                      subheading={item.subtitle || "Subtitle"}
-                      tagline={item.dateline || "Dateline"}
+                      heading={item.workPlace || "Title"}
+                      subheading={item.workTitle || "Subtitle"}
+                      tagline={
+                        new Date(item.periodStart).getFullYear() || "Dateline"
+                      }
                       footer={item.footer || []}
                     >
-                      {this.getResumeItemContent(item)}
+                      {item.summary}
                     </TimelineItem>
                   ))}
                 </Timeline>
@@ -99,15 +144,17 @@ export default class Home extends Component {
                 <h2 className="timeline-group-title">Utbildning</h2>
 
                 <Timeline>
-                  {PageData.education.map((item, index) => (
+                  {this.state.collections.educations.map((item, index) => (
                     <TimelineItem
                       key={index}
-                      heading={item.title || "Title"}
-                      subheading={item.subtitle || "Subtitle"}
-                      tagline={item.dateline || "Dateline"}
+                      heading={item.field || "Title"}
+                      subheading={item.educator || "Subtitle"}
+                      tagline={
+                        new Date(item.periodStart).getFullYear() || "Dateline"
+                      }
                       footer={item.footer || []}
                     >
-                      {this.getResumeItemContent(item)}
+                      {item.summary}
                     </TimelineItem>
                   ))}
                 </Timeline>

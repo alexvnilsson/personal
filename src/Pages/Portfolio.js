@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 
+import ApiService from "../Data/Services/ApiService";
+
+// import config from "../Config";
+// import Experience from "../Data/Components/Experience";
+
 export default class Portfolio extends Component {
   render() {
+    console.log(ApiService.getExperiences());
+
+    // const fooBar = new Experience({ id: "1", organisation: "FooBar" });
+
     return (
       <div className="container">
         <h1 className="page-header">Min portfölj</h1>

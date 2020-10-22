@@ -1,18 +1,47 @@
 ﻿import React from "react";
 
+import classNames from "classnames";
+
 export default class ListItem extends React.Component {
   render() {
     if (
       typeof this.props.title !== "undefined" &&
       typeof this.props.icon !== "undefined"
     ) {
+      const itemIconClasses = ["title-icon", "icon-smallest"];
+      let itemIconElement = undefined;
+
+      if (typeof this.props["icons-spaced"] !== "undefined") {
+        itemIconClasses.push("mx-1");
+      }
+
+      if (Array.isArray(this.props.icon)) {
+        itemIconElement = (
+          <div>
+            {this.props.icon.map((icon, index) => (
+              <i
+                key={index}
+                className={classNames(...itemIconClasses, `icon-${icon}`)}
+              />
+            ))}
+          </div>
+        );
+      } else {
+        itemIconElement = (
+          <i
+            className={classNames(
+              ...itemIconClasses,
+              `icon-${this.props.icon}`
+            )}
+          />
+        );
+      }
+
       return (
         <div className="listitem">
           <div className="title h5">
             <div className="title-wrapper">
-              <i
-                className={`title-icon icon-smaller icon-${this.props.icon}`}
-              />
+              {itemIconElement}
               <p className="title-text">{this.props.title}</p>
             </div>
           </div>

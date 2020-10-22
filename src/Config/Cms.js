@@ -1,5 +1,5 @@
 export default {
   api: {
-    baseUrl: "https://api.cms.alexvnilsson.se",
+    baseUrl: "https://cms.internal.alexvnilsson.se",
   },
 };

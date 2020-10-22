@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import Config from "Core/Config";
+import config from "../../Config";
+
 import { ReactComponent as BrandLogo } from "Assets/Brand/logotype.svg";
 
 export default class AppHeader extends Component {
@@ -18,19 +19,22 @@ export default class AppHeader extends Component {
     ];
 
     return (
-      <header className="app-header container">
-        <Link to="/" className="header-brand">
+      <header className="app-header container-fluid">
+        <NavLink exact to="/" className="header-brand" activeClassName="active">
           {/* <img src={BrandLogo} alt="Logotyp" className="brand-logo-image" /> */}
           <BrandLogo
-            width={Config.Design.Header.Logo.Dimensions}
-            height={Config.Design.Header.Logo.Dimensions}
+            width={config.design.header.logo.dimensions}
+            height={config.design.header.logo.dimensions}
           />
-        </Link>
+        </NavLink>
 
-        <ul className="header-nav ml-5 site-nav">
+        <div class="header-divider"></div>
+
+        <ul className="header-nav site-nav">
           {navItems.map((item, index) => (
             <li key={index} className="nav-item">
               <NavLink
+                exact
                 to={item.href}
                 className="nav-link"
                 activeClassName="active"

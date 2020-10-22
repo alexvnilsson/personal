@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import Config from "Core/Config";
+import config from "../../Config";
 
 import Icon from "Core/UI/Components/Icon";
 
@@ -38,7 +38,7 @@ export default class AppFooter extends Component {
                 >
                   <Icon
                     className={classNames("nav-icon")}
-                    width={Config.Design.Footer.Icons.Dimensions}
+                    width={config.design.footer.icons.dimensions}
                   >
                     {item.icon}
                   </Icon>
