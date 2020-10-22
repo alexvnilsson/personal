@@ -3,10 +3,10 @@ import React, { Component } from "react";
 export default class Portfolio extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container mt-2">
         <h1 className="page-header">Min portfölj</h1>
 
-        <p>Här samlar jag mina tidigare projekt som kan vara av intresse.</p>
+        <h6>Här samlar jag mina tidigare projekt som kan vara av intresse.</h6>
 
         <div className="margin-top-3" />
 

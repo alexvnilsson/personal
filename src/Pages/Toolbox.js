@@ -78,7 +78,7 @@ export class ToolboxItem extends Component {
 export default class Toolbox extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container mt-2">
         <FadeIn delay={100} duration={1000}>
           <div
             style={{
