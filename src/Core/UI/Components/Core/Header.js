@@ -21,7 +21,6 @@ export default class Header extends Component {
     return (
       <header className="app-header container-fluid">
         <NavLink exact to="/" className="header-brand" activeClassName="active">
-          {/* <img src={BrandLogo} alt="Logotyp" className="brand-logo-image" /> */}
           <BrandLogo
             width={config.design.header.logo.dimensions}
             height={config.design.header.logo.dimensions}
