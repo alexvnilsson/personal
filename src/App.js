@@ -6,8 +6,8 @@ import { store } from "Core/UI/Store";
 
 import RestoreScroll from "Core/UI/RestoreScroll";
 
-import AppHeader from "Core/UI/AppHeader";
-import AppFooter from "Core/UI/AppFooter";
+import Header from "Core/UI/Components/Core/Header";
+import Footer from "Core/UI/Components/Core/Footer";
 
 import Home from "Pages/Home";
 import Portfolio from "Pages/Portfolio";
@@ -36,13 +36,13 @@ export default class App extends Component {
       <Provider store={store}>
         <Router>
           <RestoreScroll>
-            <AppHeader />
+            <Header />
 
             <Route exact path="/" component={Home} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/toolbox" component={Toolbox} />
 
-            <AppFooter />
+            <Footer />
           </RestoreScroll>
         </Router>
       </Provider>

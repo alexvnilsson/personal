@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-import config from "../../Config";
+import config from "../../../../Config";
 
 import { ReactComponent as BrandLogo } from "Assets/Brand/logotype.svg";
 
-export default class AppHeader extends Component {
+export default class Header extends Component {
   render() {
     const navItems = [
       {
@@ -28,7 +28,7 @@ export default class AppHeader extends Component {
           />
         </NavLink>
 
-        <div class="header-divider"></div>
+        <div className="header-divider"></div>
 
         <ul className="header-nav site-nav">
           {navItems.map((item, index) => (

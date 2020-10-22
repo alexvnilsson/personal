@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import config from "../../Config";
+import config from "../../../../Config";
 
 import Icon from "Core/UI/Components/Icon";
 
-export default class AppFooter extends Component {
+export default class Footer extends Component {
   render() {
     const navItems = [
       {
