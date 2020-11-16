@@ -12,8 +12,6 @@ import {
 
 import { FadeIn } from "Core/UI/Transitions";
 
-import config from "../Config";
-
 const Home = () => {
   const { loading, error, data } = useQuery(gql`
     query {
@@ -84,7 +82,7 @@ const Home = () => {
               <img
                 className="image"
                 alt="cover"
-                src={`${config.cms.api.baseUrl}/${data.home?.leader?.cover?.image?.url}`}
+                src={data.home?.leader?.cover?.image?.url}
                 style={{
                   position: "absolute",
                   top: "50%",
