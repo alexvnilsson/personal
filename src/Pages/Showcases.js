@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Portfolio extends Component {
+export default class Showcases extends Component {
   render() {
     return (
       <div className="container mt-2">

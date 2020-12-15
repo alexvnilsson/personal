@@ -79,11 +79,11 @@ export class ToolboxItem extends Component {
   }
 }
 
-export default class Toolbox extends Component {
+export default class Workflows extends Component {
   render() {
     return (
       <div className="container mt-2">
-        <FadeIn delay={100} duration={1000}>
+        <FadeIn delay={25} duration={750}>
           <div
             style={{
               backgroundImage: "url(assets/parts/layers.png)",
@@ -102,7 +102,7 @@ export default class Toolbox extends Component {
 
             <div className="py-4">
               <TransitionGroup className="container">
-                <FadeInAndPanDown delay={50} duration={500}>
+                <FadeInAndPanDown delay={25} duration={250}>
                   <Deck className="mb-5">
                     <DeckTitle>Datalogik</DeckTitle>
 

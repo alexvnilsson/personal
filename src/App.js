@@ -12,8 +12,8 @@ import Header from "./Core/UI/Components/Core/Header";
 import Footer from "./Core/UI/Components/Core/Footer";
 
 import Home from "./Pages/Home";
-import Portfolio from "./Pages/Portfolio";
-import Toolbox from "./Pages/Toolbox";
+import Showcases from "./Pages/Showcases";
+import Workflows from "./Pages/Workflows";
 
 // @TODO Implement https://github.com/maisano/react-router-transition
 
@@ -40,8 +40,8 @@ export default class App extends Component {
               <Header />
 
               <Route exact path="/" component={Home} />
-              <Route exact path="/portfolio" component={Portfolio} />
-              <Route exact path="/toolbox" component={Toolbox} />
+              <Route exact path="/showcases" component={Showcases} />
+              <Route exact path="/workflows" component={Workflows} />
 
               <Footer />
             </RestoreScroll>

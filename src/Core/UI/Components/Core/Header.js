@@ -9,12 +9,12 @@ export default class Header extends Component {
   render() {
     const navItems = [
       {
-        href: "/portfolio",
-        label: "Portfölj",
+        href: "/showcases",
+        label: "Showcases",
       },
       {
-        href: "/toolbox",
-        label: "Verktygslåda",
+        href: "/workflows",
+        label: "Arbetssätt",
       },
     ];
 
