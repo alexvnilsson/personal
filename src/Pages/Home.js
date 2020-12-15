@@ -8,9 +8,9 @@ import { gql, useQuery } from "@apollo/client";
 import {
   Timeline,
   TimelineItem,
-} from "Core/UI/Components/Itemization/Timeline";
+} from "../Core/UI/Components/Itemization/Timeline";
 
-import { FadeIn } from "Core/UI/Transitions";
+import { FadeIn } from "../Core/UI/Transitions";
 
 const Home = () => {
   const { loading, error, data } = useQuery(gql`

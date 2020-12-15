@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import classNames from "classnames";
 
-import Css from "Core/UI/Css";
+import Css from "../../Css";
 import Chroma from "chroma-js";
 
 export default class Deck extends React.Component {

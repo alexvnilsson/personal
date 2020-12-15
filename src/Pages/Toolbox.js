@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 
-import Deck, { DeckTitle, DeckBody, DeckGroup } from "Core/UI/Components/Deck";
-import Progress from "Core/UI/Components/Progress";
-import ListItem from "Core/UI/Components/ListItem";
+import Deck, {
+  DeckTitle,
+  DeckBody,
+  DeckGroup,
+} from "../Core/UI/Components/Deck";
+import Progress from "../Core/UI/Components/Progress";
+import ListItem from "../Core/UI/Components/ListItem";
 
 import { TransitionGroup } from "react-transition-group";
-import { FadeInAndPanDown, FadeIn } from "Core/UI/Transitions";
+import { FadeInAndPanDown, FadeIn } from "../Core/UI/Transitions";
 
 import classNames from "classnames";
 

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import config from "../../../../Config";
 
-import { ReactComponent as BrandLogo } from "Assets/Brand/logotype.svg";
+import { ReactComponent as BrandLogo } from "../../../../Assets/Brand/logotype.svg";
 
 export default class Header extends Component {
   render() {

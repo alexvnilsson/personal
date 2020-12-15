@@ -4,16 +4,16 @@ import { Provider } from "react-redux";
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
-import { store } from "Core/UI/Store";
+import { store } from "./Core/UI/Store";
 
-import RestoreScroll from "Core/UI/RestoreScroll";
+import RestoreScroll from "./Core/UI/RestoreScroll";
 
-import Header from "Core/UI/Components/Core/Header";
-import Footer from "Core/UI/Components/Core/Footer";
+import Header from "./Core/UI/Components/Core/Header";
+import Footer from "./Core/UI/Components/Core/Footer";
 
-import Home from "Pages/Home";
-import Portfolio from "Pages/Portfolio";
-import Toolbox from "Pages/Toolbox";
+import Home from "./Pages/Home";
+import Portfolio from "./Pages/Portfolio";
+import Toolbox from "./Pages/Toolbox";
 
 // @TODO Implement https://github.com/maisano/react-router-transition
 
@@ -25,15 +25,6 @@ const client = new ApolloClient({
 });
 
 export default class App extends Component {
-  constructor() {
-    super();
-
-    this.colorTheme = {
-      body: "",
-      header: "",
-    };
-  }
-
   componentWillUnmount() {
     if (typeof this.uiStoreListener !== "undefined") {
       this.uiStoreListener();

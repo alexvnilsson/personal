@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import config from "../../../../Config";
 
-import Icon from "Core/UI/Components/Icon";
+import Icon from "../../../../Core/UI/Components/Icon";
 
 export default class Footer extends Component {
   render() {
