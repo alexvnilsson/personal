@@ -1,7 +1,9 @@
-﻿import Markdown from "markdown-to-jsx";
-import React from "react";
+﻿import React from "react";
+
 import Chroma from "chroma-js";
 import invertColor from "invert-color";
+
+import Markdown from "markdown-to-jsx";
 
 import { gql, useQuery } from "@apollo/client";
 
@@ -58,9 +60,9 @@ const Home = () => {
 
       {canRender && !data.home?.leader?.renderAsBanner && (
         <div className="container mt-2">
-          <Markdown options={{ forceBlock: true }}>
+          {/* <Markdown options={{ forceBlock: true }}>
             {data.home?.leader?.content}
-          </Markdown>
+          </Markdown> */}
         </div>
       )}
 
@@ -101,9 +103,9 @@ const Home = () => {
                 zIndex: 2,
               }}
             >
-              <Markdown options={{ forceBlock: true }}>
+              {/* <Markdown options={{ forceBlock: true }}>
                 {data.home?.leader?.content}
-              </Markdown>
+              </Markdown> */}
             </div>
           </div>
         </div>
@@ -111,57 +113,61 @@ const Home = () => {
 
       <div className="container">
         <FadeIn delay={500} duration={750}>
-          <div className="timeline-group">
-            <h2 className="timeline-group-title">Arbetslivserfarenhet</h2>
+          {data?.experiences && (
+            <div className="timeline-group">
+              <h2 className="timeline-group-title">Arbetslivserfarenhet</h2>
 
-            {canRender && (
-              <Timeline>
-                {data.experiences?.map((item, index) => (
-                  <TimelineItem
-                    key={index}
-                    heading={item.workTitle || "Title"}
-                    subheading={item.workPlace || "Subtitle"}
-                    tagline={
-                      new Date(item.periodStart).getFullYear() || "Dateline"
-                    }
-                    footer={item.footer || []}
-                  >
-                    {item.summary && (
-                      <Markdown options={{ forceBlock: true }}>
-                        {item.summary}
-                      </Markdown>
-                    )}
-                  </TimelineItem>
-                ))}
-              </Timeline>
-            )}
-          </div>
+              {canRender && (
+                <Timeline>
+                  {data.experiences?.map((item, index) => (
+                    <TimelineItem
+                      key={index}
+                      heading={item.workTitle || "Title"}
+                      subheading={item.workPlace || "Subtitle"}
+                      tagline={
+                        new Date(item.periodStart).getFullYear() || "Dateline"
+                      }
+                      footer={item.footer || []}
+                    >
+                      {/* {item.summary && (
+                        <Markdown options={{ forceBlock: true }}>
+                          {item.summary}
+                        </Markdown>
+                      )} */}
+                    </TimelineItem>
+                  ))}
+                </Timeline>
+              )}
+            </div>
+          )}
 
-          <div className="timeline-group">
-            <h2 className="timeline-group-title">Utbildning</h2>
+          {data?.educations && (
+            <div className="timeline-group">
+              <h2 className="timeline-group-title">Utbildning</h2>
 
-            {canRender && (
-              <Timeline>
-                {data.educations?.map((item, index) => (
-                  <TimelineItem
-                    key={index}
-                    heading={item.field || "Title"}
-                    subheading={item.educator || "Subtitle"}
-                    tagline={
-                      new Date(item.periodStart).getFullYear() || "Dateline"
-                    }
-                    footer={item.footer || []}
-                  >
-                    {item.summary && (
-                      <Markdown options={{ forceBlock: true }}>
-                        {item.summary}
-                      </Markdown>
-                    )}
-                  </TimelineItem>
-                ))}
-              </Timeline>
-            )}
-          </div>
+              {canRender && (
+                <Timeline>
+                  {data.educations?.map((item, index) => (
+                    <TimelineItem
+                      key={index}
+                      heading={item.field || "Title"}
+                      subheading={item.educator || "Subtitle"}
+                      tagline={
+                        new Date(item.periodStart).getFullYear() || "Dateline"
+                      }
+                      footer={item.footer || []}
+                    >
+                      {/* {item.summary && (
+                        <Markdown options={{ forceBlock: true }}>
+                          {item.summary}
+                        </Markdown>
+                      )} */}
+                    </TimelineItem>
+                  ))}
+                </Timeline>
+              )}
+            </div>
+          )}
         </FadeIn>
       </div>
     </div>

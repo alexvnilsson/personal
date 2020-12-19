@@ -1,5 +1,9 @@
+import config from "../services/config";
+
 export default {
   api: {
-    baseUrl: "https://api.alexvnilsson.se/personal/cms",
+    baseUrl: config.isProd
+      ? "https://api.alexvnilsson.se/personal/cms"
+      : "http://localhost:3000",
   },
 };
