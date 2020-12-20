@@ -1,17 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
-import { store } from "./Core/UI/Store";
+import { store } from "./store";
 
-import { gql, useQuery } from "@apollo/client";
+import navigation from "./services/cms/navigation";
 
 import RestoreScroll from "./Core/UI/RestoreScroll";
 
 import Header from "./Core/UI/Components/Core/Header";
-import Navigation from "./components/core/navigation";
 import Footer from "./Core/UI/Components/Core/Footer";
 
 import PageRouter from "./components/page/router";
@@ -20,17 +19,20 @@ import Home from "./Pages/Home";
 import Showcases from "./Pages/Showcases";
 import Workflows from "./Pages/Workflows";
 
+import _Array from "lodash/array";
+
 // @TODO Implement https://github.com/maisano/react-router-transition
 
-import config from "./Config";
+import client from "./services/cms/client";
 
-const client = new ApolloClient({
-  uri: `${config.cms.api.baseUrl}/graphql`,
-  cache: new InMemoryCache(),
-});
+export default class App extends React.Component {
+  constructor() {
+    super();
+  }
 
-export default class App extends Component {
-  componentDidMount() {}
+  async componentDidMount() {
+    await navigation.getPages();
+  }
 
   componentWillUnmount() {
     if (typeof this.uiStoreListener !== "undefined") {
@@ -45,7 +47,6 @@ export default class App extends Component {
           <Router>
             <RestoreScroll>
               <Header />
-              <Navigation />
 
               <Switch>
                 <Route exact path="/" component={Home} />
@@ -53,7 +54,7 @@ export default class App extends Component {
                 <Route exact path="/workflows" component={Workflows} />
 
                 <Route
-                  path="*"
+                  path="/*"
                   render={(props) => <PageRouter props={{ route: props }} />}
                 />
               </Switch>

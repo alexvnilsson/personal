@@ -2,15 +2,17 @@ import React from "react";
 
 import { gql, useQuery } from "@apollo/client";
 
-import cmsService from "../../../services/cms";
+import cmsService from "../../services/cms/client";
+import navigation from "../../services/cms/navigation";
 
-import PageTemplateNormal from "../template/normal";
+import PageTemplateNormal from "./template/normal";
 
 export default class PageRouter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       page: null,
+      pageParents: null,
       pageInSitemap: null,
       loading: true,
       isError: false,
@@ -19,8 +21,6 @@ export default class PageRouter extends React.Component {
       path: document.location.pathname,
     };
     this.sitemap = null;
-
-    console.log(this.state.path);
   }
 
   //required when using the react-router-dom, since it thinks each page is the same component/content, we need todo some logic here
@@ -28,6 +28,7 @@ export default class PageRouter extends React.Component {
     if (prevState.path !== document.location.pathname) {
       return {
         page: null,
+        pageParents: null,
         pageInSitemap: null,
         loading: true,
         isError: false,
@@ -43,6 +44,7 @@ export default class PageRouter extends React.Component {
     if (prevState.path !== document.location.pathname) {
       this.setState({
         page: null,
+        pageParents: null,
         pageInSitemap: null,
         loading: true,
         isError: false,
@@ -79,24 +81,37 @@ export default class PageRouter extends React.Component {
 
   async routePage() {
     try {
+      const page = await navigation.resolvePath(this.state.path);
+
       const { data } = await cmsService.query({
         query: gql(`
         query {
-          pages(where: {path: "${this.state.path}"}) {
+          page(id: "${page.id}") {
             id,
-            title { text, showOnPage },
+            slug,
+            title,
             template,
-            parent { id, title { text } },
-            cover { backgroundColor, shapeImage {url}},
-            containers { content }
+            parent { id, slug, title },
+            content {
+              __typename ... on ComponentContentPageCover {
+                backgroundColor,
+                shapeColor,
+                shapeImage { url },
+                headingText,
+                headingColor
+              },
+
+              __typename ... on ComponentContentContainer {
+                content
+              }
+            }
           }
         }`),
       });
-      console.log(data);
-      if (data.pages.length) {
-        const page = data.pages[0];
-        console.log(page);
-        this.setPage(page, undefined);
+
+      if (data.page) {
+        const parents = await navigation.getAllParents(page);
+        this.setPage(data.page, parents, undefined);
       } else {
         this.pageNotFound();
       }
@@ -105,9 +120,10 @@ export default class PageRouter extends React.Component {
     }
   }
 
-  setPage = (page, pageInSitemap) => {
+  setPage = (page, parents, pageInSitemap) => {
     this.setState({
       page: page,
+      pageParents: parents,
       pageInSitemap: pageInSitemap,
       loading: false,
       isError: false,
@@ -120,6 +136,7 @@ export default class PageRouter extends React.Component {
     console.error(error);
     this.setState({
       page: null,
+      pageParents: null,
       pageInSitemap: null,
       loading: false,
       isError: true,
@@ -137,6 +154,7 @@ export default class PageRouter extends React.Component {
   pageNotFound = () => {
     this.setState({
       page: null,
+      pageParents: null,
       pageInSitemap: null,
       loading: false,
       isError: false,
@@ -153,20 +171,24 @@ export default class PageRouter extends React.Component {
 
   renderTemplate = () => {
     if (this.state.page != null) {
+      const page = this.state.page;
+
       //HACK: need a proper reference name for page templates
-      const template = this.state.page.template
-        .toLowerCase()
-        .replace(/[^0-9a-zA-Z]/g, "");
-      console.log(template);
+      const template = page.template.toLowerCase().replace(/[^0-9a-zA-Z]/g, "");
+      const props = {
+        id: page.id,
+        name: page.name,
+        title: page.title,
+        parents: this.state.pageParents,
+        parent: page.parent,
+        content: page.content,
+      };
 
       switch (template) {
-        case "normal":
-          return <PageTemplateNormal title={this.state.page.title} />;
+        case PageTemplateNormal.templateName:
+          return <PageTemplateNormal {...props} />;
         default:
           return null;
-      }
-
-      if (template === "normal") {
       }
     }
   };
