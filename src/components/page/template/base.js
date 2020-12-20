@@ -1,4 +1,7 @@
 import React from "react";
+
+import navigation from "../../../services/cms/navigation";
+
 import HTMLWrapper from "../wrappers/html";
 
 export default class PageTemplate extends React.Component {
@@ -6,6 +9,16 @@ export default class PageTemplate extends React.Component {
 
   constructor() {
     super();
+  }
+
+  /**
+   *
+   * @param {*} page
+   *
+   * @returns {Promise<string>} URL.
+   */
+  async createLinkToPage(page) {
+    return await navigation.createPageUrl(page);
   }
 
   /**
